@@ -49,8 +49,12 @@
             document.documentElement.classList.add('overflow-hidden');
             document.body.style.touchAction = 'none';
 
-            // Reset content & show modal
-            this.content.innerHTML = '';
+            // Show modal and ensure placeholder/spinner is visible
+            this.content.innerHTML = `
+                <div class="restem-spinner grid place-items-center min-h-[400px] h-full">
+                    <div class="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-[#B45309]"></div>
+                </div>
+            `;
             this.element.showModal();
 
             // Load data

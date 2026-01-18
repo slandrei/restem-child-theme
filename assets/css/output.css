@@ -213,6 +213,9 @@
   .pointer-events-none {
     pointer-events: none;
   }
+  .visible {
+    visibility: visible;
+  }
   .sr-only {
     position: absolute;
     width: 1px;
@@ -350,6 +353,12 @@
   }
   .h-\[calc\(90vh\)\] {
     height: calc(90vh);
+  }
+  .h-\[min\(30vh\,90vh\)\] {
+    height: min(30vh, 90vh);
+  }
+  .h-\[min\(90vh\,30vh\)\] {
+    height: min(90vh, 30vh);
   }
   .h-\[min\(90vh\,90vh\)\] {
     height: min(90vh, 90vh);
@@ -1001,6 +1010,11 @@
       display: none;
     }
   }
+  .empty\:min-h-\[30vh\] {
+    &:empty {
+      min-height: 30vh;
+    }
+  }
   .hover\:\!bg-\[\#22211f\] {
     &:hover {
       @media (hover: hover) {
@@ -1223,6 +1237,31 @@
   .\[\&_ins\]\:no-underline {
     & ins {
       text-decoration-line: none;
+    }
+  }
+  .\[\&\:has\(\#product-modal-content\:not\(\:empty\)\)\]\:h-\[min\(90vh\,90vh\)\] {
+    &:has(#product-modal-content:not(:empty)) {
+      height: min(90vh, 90vh);
+    }
+  }
+  .\[\&\:has\(\.restem-spinner\)\]\:min-h-\[25vh\] {
+    &:has(.restem-spinner) {
+      min-height: 25vh;
+    }
+  }
+  .\[\&\:has\(\.restem-spinner\)\]\:min-h-\[30vh\] {
+    &:has(.restem-spinner) {
+      min-height: 30vh;
+    }
+  }
+  .\[\&\:has\(restem-spinner\)\]\:h-\[min\(90vh\,90vh\)\] {
+    &:has(restem-spinner) {
+      height: min(90vh, 90vh);
+    }
+  }
+  .\[\&\:has\(restem-spinner\)\]\:min-h-\[30vh\] {
+    &:has(restem-spinner) {
+      min-height: 30vh;
     }
   }
   .\[\&\:has\(\~\#product-modal-content\:not\(\:empty\)\)\]\:hidden {

@@ -5,7 +5,10 @@ $image_id      = $product->get_image_id();
 $image_url     = wp_get_attachment_image_url( $image_id, 'large' );
 $weight        = $product->get_weight();
 $description   = $product->get_description();
-$price_html    = $product->get_price_html();
+$price         = $product->get_price();
+$sale_price    = $product->get_sale_price();
+$price         = number_format( (float) $product->get_price(), 2 );
+$sale_price    = $sale_price ? number_format( (float) ( $sale_price ), 2 ) : '';
 $is_vegetarian = has_term( 'vegetarian', 'product_cat', $product->get_id() );
 
 // Mocking nutrition and allergens as they are usually custom fields
@@ -25,7 +28,7 @@ $alergeni       = "Gluten, Muștar (sos), Susan (posibil, în chiflă)";
         </style>
         <!-- Imagine -->
         <div class="relative p-4 pb-0">
-            <div class="aspect-[4/3] w-full overflow-hidden rounded-[2rem] relative shadow-inner bg-gray-50">
+            <div class="aspect-[4/3] w-full overflow-hidden rounded-xl relative shadow-inner bg-gray-50">
 				<?php if ( $image_url ) : ?>
                     <img src="<?= esc_url( $image_url ); ?>" alt="<?= esc_attr( $product->get_name() ); ?>"
                          class="w-full h-full object-cover">
@@ -50,11 +53,17 @@ $alergeni       = "Gluten, Muștar (sos), Susan (posibil, în chiflă)";
             </div>
         </div>
 
+        <style>
+            .restem-product-content * {
+                font-family: 'Mulish', 'Helvetica', 'Arial', sans-serif !important;
+            }
+        </style>
+
         <!-- Conținut -->
-        <div class="px-8 pt-6 pb-8">
-            <h2 class="text-3xl font-bold text-gray-900 mb-1 leading-tight"><?= esc_html( $product->get_name() ); ?></h2>
+        <div class="restem-product-content px-8 pt-6 pb-8">
+            <h2 class="!text-3xl !font-bold text-gray-900 mb-1 !leading-normal"><?= esc_html( $product->get_name() ); ?></h2>
 			<?php if ( $weight ) : ?>
-                <div class="text-gray-500 font-medium mb-4"><?= esc_html( $weight ); ?>g</div>
+                <div class="!text-base text-gray-500 font-medium mb-4"><?= esc_html( $weight ); ?>g</div>
 			<?php endif; ?>
 
             <div class="text-gray-700 leading-relaxed mb-6 text-lg">
@@ -111,14 +120,25 @@ $alergeni       = "Gluten, Muștar (sos), Susan (posibil, în chiflă)";
     <!-- Footer cu Preț și Buton -->
     <div class="mt-auto border-t border-gray-100 p-8 pt-6">
         <div class="flex items-center justify-between">
-            <div class="product-price text-[#B45309] font-bold text-3xl leading-none [&_del]:text-gray-400 [&_del]:font-normal [&_del]:text-base [&_del]:ml-3 [&_ins]:no-underline [&_.amount]:text-[#B45309]">
-				<?= $price_html; ?>
-            </div>
+            <?php if ( $price > 0 ) : ?>
+                <div class="flex gap-2">
+                    <div class="product-price text-[#B45309] font-bold !text-2xl leading-none [&_del]:text-[#76736ccc] [&_del]:font-normal [&_del]:text-sm [&_del]:ml-2 [&_ins]:no-underline [&_.amount]:text-[#B45309]">
+                        <?= $price; ?> lei
+                    </div>
+                    <?php if ( $sale_price ) : ?>
+                        <div class="product-old-price text-[#76736c] text-lg font-bold line-through">
+                            &nbsp;<?= $sale_price; ?> lei
+                        </div>
+                    <?php endif; ?>
+                </div>
+            <?php else: ?>
+                <span class="text-red-700">Indisponibil</span>
+            <?php endif; ?>
 
-            <a href="<?= esc_url( $product->add_to_cart_url() ); ?>"
+          <!--  <a href="<?php /*= esc_url( $product->add_to_cart_url() ); */?>"
                class="bg-gray-900 text-white px-8 py-3 rounded-2xl text-lg font-bold hover:bg-black transition-transform active:scale-95 shadow-lg">
                 Adaugă
-            </a>
+            </a>-->
         </div>
     </div>
 </div>

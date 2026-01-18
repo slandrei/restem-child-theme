@@ -70,7 +70,7 @@ $is_vegetarian = has_term( 'vegetarian', 'product_cat', $product->get_id() );
     </style>
     <div class="restem-product-content antialiased px-5 pb-5 flex flex-col flex-grow">
 
-        <h3 class="!text-2xl !font-bold text-gray-800 mb-1 leading-tight text-left "><?php echo esc_html( $product->get_name() ); ?></h3>
+        <h3 class="!text-[32px] !font-bold text-gray-800 mb-1 !leading-normal text-left "><?php echo esc_html( $product->get_name() ); ?></h3>
 
         <?php if ( $weight ) : ?>
             <span class="text-gray-500 text-md mb-3 block text-left"><?= esc_html( $weight ); ?>g</span>

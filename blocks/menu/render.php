@@ -10,10 +10,10 @@ $categories = get_terms( [
 ?>
 
 <div class="tw" data-menu-block>
-    <div class="flex gap-3 mb-6 flex-wrap">
+    <div class="restem-product-categories flex gap-3 mb-6 flex-wrap justify-center">
 		<?php foreach ( $categories as $index => $cat ): ?>
             <button data-category="<?= esc_attr( $cat->slug ); ?>"
-                    class="!text-gray-100 !bg-[#22211f] !border-[#22211f] data-[active-category='true']:!bg-[#b07657] data-[active-category='true']:!border-[#b07657]"
+                    class="flex-1 !text-gray-100 !bg-[#22211f] !border-[#22211f] data-[active-category='true']:!bg-[#b07657] data-[active-category='true']:!border-[#b07657]"
                     data-active-category="<?= ( isset( $_GET['category'] ) && $_GET['category'] === $cat->slug ) || ( ! isset( $_GET['category'] ) && $index === 0 ) ? 'true' : 'false' ?>"
             >
 				<?= esc_html( $cat->name ); ?>

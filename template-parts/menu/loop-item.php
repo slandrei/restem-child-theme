@@ -9,24 +9,27 @@ $weight      = $product->get_weight();
 $description = $product->get_short_description() ?: $product->get_description();
 // Truncate description if too long
 $description   = wp_trim_words( $description, 20 );
-$price_html    = $product->get_price_html();
+$price         = $product->get_price();
+$sale_price    = $product->get_sale_price();
+$price         = number_format( (float) $product->get_price(), 2 );
+$sale_price    = $sale_price ? number_format( (float) ( $sale_price ), 2 ) : '';
 $is_vegetarian = has_term( 'vegetarian', 'product_cat', $product->get_id() );
 ?>
 
-<div class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden flex flex-col h-full font-sans">
-    <!-- Imaginea produsului -->
-    <div class="relative p-3">
-        <div class="w-full overflow-hidden rounded-2xl relative">
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col h-full">
+    <!-- Image -->
+    <div class="restem-product-image relative p-3">
+        <div class="w-full overflow-hidden rounded-lg relative">
             <?php if ( $image_url ) : ?>
                 <img src="<?= esc_url( $image_url ); ?>" alt="<?= esc_attr( $product->get_name() ); ?>"
-                     class="w-full max-h-[280px] h-full object-cover">
+                     class="w-full max-h-[280px] min-h-[280px] h-full object-cover elect-none pointer-events-none">
             <?php else : ?>
                 <div class="w-full h-full bg-gray-100 flex items-center justify-center">
-                    <span class="text-gray-400">Fără imagine</span>
+                    <span class="text-[#76736ccc]">Fără imagine</span>
                 </div>
             <?php endif; ?>
 
-            <!-- Iconițe suprapuse -->
+            <!-- Icons -->
             <div class="absolute top-2 left-2">
                 <?php if ( $is_vegetarian ) : ?>
                     <div class="bg-[#7BA05B] p-1.5 rounded-lg shadow-sm">
@@ -59,29 +62,45 @@ $is_vegetarian = has_term( 'vegetarian', 'product_cat', $product->get_id() );
         </div>
     </div>
 
-    <!-- Conținut text -->
-    <div class="px-5 pb-5 flex flex-col flex-grow">
-        <h3 class="text-2xl font-bold text-gray-800 mb-1 leading-tight"><?= esc_html( $product->get_name() ); ?></h3>
+    <!-- Content -->
+    <style>
+        .restem-product-content * {
+            font-family: 'Mulish', 'Helvetica', 'Arial', sans-serif !important;
+        }
+    </style>
+    <div class="restem-product-content antialiased px-5 pb-5 flex flex-col flex-grow">
+
+        <h3 class="!text-2xl !font-bold text-gray-800 mb-1 leading-tight text-left "><?php echo esc_html( $product->get_name() ); ?></h3>
 
         <?php if ( $weight ) : ?>
-            <span class="text-gray-500 text-sm mb-3 block"><?= esc_html( $weight ); ?>g</span>
+            <span class="text-gray-500 text-md mb-3 block text-left"><?= esc_html( $weight ); ?>g</span>
         <?php endif; ?>
 
-        <div class="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
+        <div class="!text-[#76736ccc] !text-md leading-relaxed mb-6 flex-grow text-left">
             <?= $description; ?>
+            Lorem ipsum dolor sit amet, at mei dolore tritani repudiandae. In his nemore vim ad prima vivendum consetetur. Viderer feugiat at pro, mea aperiam
         </div>
 
         <div class="border-t border-gray-100 pt-5 flex items-center justify-between mt-auto">
-            <div class="flex flex-col">
-                <div class="product-price text-[#B45309] font-bold text-xl leading-none [&_del]:text-gray-400 [&_del]:font-normal [&_del]:text-sm [&_del]:ml-2 [&_ins]:no-underline [&_.amount]:text-[#B45309]">
-                    <?= $price_html; ?>
+            <?php if ( $price > 0 ) : ?>
+                <div class="flex gap-2">
+                    <div class="product-price text-[#B45309] font-bold !text-2xl leading-none [&_del]:text-[#76736ccc] [&_del]:font-normal [&_del]:text-sm [&_del]:ml-2 [&_ins]:no-underline [&_.amount]:text-[#B45309]">
+                        <?= $price; ?> lei
+                    </div>
+                    <?php if ( $sale_price ) : ?>
+                        <div class="product-old-price text-[#76736c] text-lg font-bold line-through">
+                            &nbsp;<?= $sale_price; ?> lei
+                        </div>
+                    <?php endif; ?>
                 </div>
-            </div>
+            <?php else: ?>
+                <span class="text-red-700">Indisponibil</span>
+            <?php endif; ?>
 
             <button
-                class="border border-gray-800 text-gray-800 px-6 py-2 rounded-xl text-sm font-medium hover:bg-gray-800 hover:text-white transition-colors"
-                data-open-modal
-                data-product-id="<?= $product->get_id(); ?>"
+                    class="!text-sm !border-[1px] !bg-transparent !border-gray-800 !text-gray-800 !px-6 !py-3 rounded-xl font-medium hover:!bg-[#22211f] hover:!text-white duration-500 transition-colors"
+                    data-open-modal
+                    data-product-id="<?= $product->get_id(); ?>"
             >
                 Detalii
             </button>

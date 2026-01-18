@@ -17,11 +17,13 @@ add_action( 'wp_head', function () {
 	echo '<!-- tailwind test -->';
 });
 add_action('wp_head', function() {
-/*	$reset_file = get_stylesheet_directory_uri() . '/assets/css/reset.css';
+	/*
+	$reset_file = get_stylesheet_directory_uri() . '/assets/css/reset.css';
 	if($reset_file) {
 		$reset_uri = get_stylesheet_directory_uri() . '/assets/css/reset.css';
 		echo '<link rel="stylesheet" href="' . esc_url($reset_uri) . '" />';
-	}*/
+	}
+	*/
 
 	$css_file = get_stylesheet_directory() . '/assets/css/output.css';
 	if (file_exists($css_file)) {
@@ -30,5 +32,10 @@ add_action('wp_head', function() {
 	}
 
 });
+
+add_action( 'wp_footer', function () {
+	get_template_part( 'template-parts/menu/modal-product', null );
+} );
+
 
 require_once get_stylesheet_directory() . '/inc/ajax.php';

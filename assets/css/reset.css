@@ -1,0 +1,71 @@
+/* Reset complet pentru containerul .tw */
+.tw * {
+    all: unset;                  /* resetează toate proprietățile moștenite */
+    box-sizing: border-box;      /* layout predictibil */
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: none;
+    text-decoration: none;
+    vertical-align: baseline;
+    line-height: normal;
+    cursor: auto;
+}
+
+/* Reset specific pentru interactive elements */
+.tw button,
+.tw input,
+.tw select,
+.tw textarea {
+    cursor: pointer;             /* butoane pointer */
+    display: inline-block;       /* display default */
+    text-align: center;
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: none;
+    outline: none;
+    appearance: none;
+    border-radius: 0;
+}
+
+/* Reset liste */
+.tw ul,
+.tw ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Reset link-uri */
+.tw a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Reset imagini */
+.tw img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Reset tabele */
+.tw table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Reset heading-uri */
+.tw h1,
+.tw h2,
+.tw h3,
+.tw h4,
+.tw h5,
+.tw h6 {
+    font-size: inherit;
+    font-weight: inherit;
+    margin: 0;
+}

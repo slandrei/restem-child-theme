@@ -1,0 +1,22 @@
+# Only ignore files in wp-content/themes/twentytwentyfive-child/
+/node_modules/
+/npm-debug.log
+/yarn-debug.log
+/yarn-error.log
+/.pnpm-debug.log
+/dist/
+/build/
+
+# Environment & Config
+/.env
+/.env.*
+!/.env.example
+/*.log
+
+# IDE & OS
+.DS_Store
+/.idea/
+/.vscode/
+/*.swp
+/*.swo
+/Thumbs.db

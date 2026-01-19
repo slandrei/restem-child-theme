@@ -21,7 +21,7 @@ $alergeni       = "Gluten, Muștar (sos), Susan (posibil, în chiflă)";
 
 <div class="tw flex flex-col h-full overflow-hidden min-h-0 max-h-[calc(90vh-40px)] md:max-h-[90vh] opacity-0 animate-fade-in duration-300 ease-in-out">
 <!-- Zona scrollabila: Imagine + Conținut -->
-    <div class="relative flex-1 overflow-y-auto min-h-0"
+    <div class="relative flex-1 overflow-y-auto overscroll-contain min-h-0"
          style="scrollbar-width: none; -ms-overflow-style: none; height: calc(90vh - 120px);">
     <style>
             .overflow-y-auto::-webkit-scrollbar {

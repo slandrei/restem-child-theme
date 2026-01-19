@@ -18,7 +18,7 @@ $gramaje        = "Chiflă burger: 80 g, Chiftea vegetariană (năut & legume): 
 $valori_nutri   = "Energie: 520 kcal, Proteine: 18 g, Carbohidrați: 62 g, Grăsimi: 24 g, Fibre: 9 g, Sare: 1.6 g";
 $alergeni       = "Gluten, Muștar (sos), Susan (posibil, în chiflă)";
 ?>
-<div class="tw flex flex-col h-full overflow-hidden min-h-0">
+<div class="tw flex flex-col h-full overflow-hidden min-h-0 opacity-0 animate-fade-in">
     <!-- Zona scrollabila: Imagine + Conținut -->
     <div class="relative flex-grow overflow-y-auto min-h-0" style="scrollbar-width: none; -ms-overflow-style: none;">
         <style>

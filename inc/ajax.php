@@ -4,7 +4,7 @@
  */
 
 add_action( 'wp_ajax_restem_filter_menu', 'restem_filter_menu' );
-add_action( 'wp_ajax_nopriv_filter_menu', 'restem_filter_menu' );
+add_action( 'wp_ajax_nopriv_restem_filter_menu', 'restem_filter_menu' );
 function restem_filter_menu() {
 	ob_start();
 	get_template_part(

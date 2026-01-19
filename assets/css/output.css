@@ -282,6 +282,12 @@
   .z-50 {
     z-index: 50;
   }
+  .mx-3 {
+    margin-inline: calc(var(--spacing) * 3);
+  }
+  .mx-4 {
+    margin-inline: calc(var(--spacing) * 4);
+  }
   .my-6 {
     margin-block: calc(var(--spacing) * 6);
   }
@@ -409,8 +415,29 @@
   .w-16 {
     width: calc(var(--spacing) * 16);
   }
+  .w-\[calc\(100\%-12px\)\] {
+    width: calc(100% - 12px);
+  }
+  .w-\[calc\(100\%-24px\)\] {
+    width: calc(100% - 24px);
+  }
+  .w-\[calc\(100\%-30px\)\] {
+    width: calc(100% - 30px);
+  }
+  .w-\[calc\(100\%-36px\)\] {
+    width: calc(100% - 36px);
+  }
+  .w-\[calc\(100\%-40px\)\] {
+    width: calc(100% - 40px);
+  }
+  .w-auto {
+    width: auto;
+  }
   .w-full {
     width: 100%;
+  }
+  .w-max {
+    width: max-content;
   }
   .max-w-\[calc\(100\%-2rem\)\] {
     max-width: calc(100% - 2rem);
@@ -1152,6 +1179,16 @@
   .sm\:text-left {
     @media (width >= 40rem) {
       text-align: left;
+    }
+  }
+  .md\:mx-0 {
+    @media (width >= 48rem) {
+      margin-inline: calc(var(--spacing) * 0);
+    }
+  }
+  .md\:w-full {
+    @media (width >= 48rem) {
+      width: 100%;
     }
   }
   .md\:grid-cols-2 {

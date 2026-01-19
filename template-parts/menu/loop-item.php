@@ -16,8 +16,8 @@ $sale_price    = $sale_price ? number_format( (float) ( $sale_price ), 2 ) : '';
 $is_vegetarian = has_term( 'vegetarian', 'product_cat', $product->get_id() );
 ?>
 
-<div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col h-full">
-    <!-- Image -->
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col h-full opacity-0 animate-fade-in">
+<!-- Image -->
     <div class="restem-product-image relative p-3">
         <div class="w-full overflow-hidden rounded-lg relative">
             <?php if ( $image_url ) : ?>
@@ -66,6 +66,19 @@ $is_vegetarian = has_term( 'vegetarian', 'product_cat', $product->get_id() );
     <style>
         .restem-product-content * {
             font-family: 'Mulish', 'Helvetica', 'Arial', sans-serif !important;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-in forwards;
         }
     </style>
     <div class="restem-product-content antialiased px-5 pb-5 flex flex-col flex-grow">

@@ -4,7 +4,7 @@
  */
 $product     = $args['product'];
 $image_id    = $product->get_image_id();
-$image_url   = wp_get_attachment_image_url( $image_id, 'medium' );
+$image_url   = wp_get_attachment_image_url( $image_id, 'large' );
 $weight      = $product->get_weight();
 $description = $product->get_short_description() ?: $product->get_description();
 // Truncate description if too long

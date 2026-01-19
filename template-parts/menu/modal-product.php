@@ -13,11 +13,7 @@
             </button>
         </form>
 
-        <div id="product-modal-content" class="flex flex-col min-h-0 h-full">
-            <div class="grid place-items-center min-h-[400px]">
-                <div class="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-[#B45309]"></div>
-            </div>
-        </div>
+        <div id="product-modal-content" class="flex flex-col min-h-0 h-full"></div>
     </div>
 
 </dialog>

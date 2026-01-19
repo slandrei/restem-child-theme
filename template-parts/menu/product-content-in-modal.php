@@ -18,10 +18,12 @@ $gramaje        = "Chiflă burger: 80 g, Chiftea vegetariană (năut & legume): 
 $valori_nutri   = "Energie: 520 kcal, Proteine: 18 g, Carbohidrați: 62 g, Grăsimi: 24 g, Fibre: 9 g, Sare: 1.6 g";
 $alergeni       = "Gluten, Muștar (sos), Susan (posibil, în chiflă)";
 ?>
-<div class="tw flex flex-col h-full overflow-hidden min-h-0 opacity-0 animate-fade-in transition-[height] duration-300 ease-in-out">
+
+<div class="tw flex flex-col h-full overflow-hidden min-h-0 max-h-[calc(90vh-40px)] md:max-h-[90vh] opacity-0 animate-fade-in duration-300 ease-in-out">
 <!-- Zona scrollabila: Imagine + Conținut -->
-    <div class="relative flex-grow overflow-y-auto min-h-0" style="scrollbar-width: none; -ms-overflow-style: none;">
-        <style>
+    <div class="relative flex-1 overflow-y-auto min-h-0"
+         style="scrollbar-width: none; -ms-overflow-style: none; height: calc(90vh - 120px);">
+    <style>
             .overflow-y-auto::-webkit-scrollbar {
                 display: none;
             }
@@ -72,8 +74,8 @@ $alergeni       = "Gluten, Muștar (sos), Susan (posibil, în chiflă)";
         </style>
 
         <!-- Conținut -->
-        <div class="restem-product-content px-8 pt-6 pb-8">
-            <h2 class="!text-3xl !font-bold text-gray-900 mb-1 !leading-normal"><?= esc_html( $product->get_name() ); ?></h2>
+        <div class="restem-product-content px-8 pt-6 pb-8 overflow-y-auto">
+        <h2 class="!text-3xl !font-bold text-gray-900 mb-1 !leading-normal"><?= esc_html( $product->get_name() ); ?></h2>
 			<?php if ( $weight ) : ?>
                 <div class="!text-base text-gray-500 font-medium mb-4"><?= esc_html( $weight ); ?>g</div>
 			<?php endif; ?>

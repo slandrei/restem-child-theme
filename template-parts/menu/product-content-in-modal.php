@@ -41,7 +41,7 @@ $alergeni       = "Gluten, Muștar (sos), Susan (posibil, în chiflă)";
             }
         </style>
         <!-- Imagine -->
-        <div class="relative p-4 pb-0">
+        <div class="relative px-4">
             <div class="aspect-[4/3] w-full object-cover overflow-hidden rounded-xl relative shadow-inner bg-gray-50">
 				<?php if ( $image_url ) : ?>
                     <img src="<?= esc_url( $image_url ); ?>" alt="<?= esc_attr( $product->get_name() ); ?>"

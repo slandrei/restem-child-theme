@@ -13,7 +13,7 @@
             </button>
         </form>
 
-        <div id="product-modal-content" class="flex flex-col min-h-0 h-full"></div>
+        <div id="product-modal-content" class="flex flex-col min-h-0 h-full pt-4"></div>
     </div>
 
 </dialog>

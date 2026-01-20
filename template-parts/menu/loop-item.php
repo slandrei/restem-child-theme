@@ -16,13 +16,13 @@ $sale_price    = $sale_price ? number_format( (float) ( $sale_price ), 2 ) : '';
 $is_vegetarian = has_term( 'vegetarian', 'product_cat', $product->get_id() );
 ?>
 
-<div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col h-full opacity-0 animate-fade-in">
+<div class="bg-white rounded-xl border border-gray-100 overflow-hidden flex flex-col h-full opacity-0 animate-fade-in">
 <!-- Image -->
     <div class="restem-product-image relative p-3">
         <div class="w-full overflow-hidden rounded-lg relative">
             <?php if ( $image_url ) : ?>
                 <img src="<?= esc_url( $image_url ); ?>" alt="<?= esc_attr( $product->get_name() ); ?>"
-                     class="w-full max-h-[280px] min-h-[280px] h-full object-cover elect-none pointer-events-none">
+                     class="w-full max-h-[230px] md:max-h-[280px] min-h-[230px] md:min-h-[280px] h-full object-cover elect-none pointer-events-none">
             <?php else : ?>
                 <div class="w-full h-full bg-gray-100 flex items-center justify-center">
                     <span class="text-[#76736ccc]">Fără imagine</span>
@@ -83,18 +83,21 @@ $is_vegetarian = has_term( 'vegetarian', 'product_cat', $product->get_id() );
     </style>
     <div class="restem-product-content antialiased px-5 pb-5 flex flex-col flex-grow">
 
-        <h3 class="!text-[32px] !font-bold text-gray-800 mb-1 !leading-normal text-left "><?php echo esc_html( $product->get_name() ); ?></h3>
+        <h3 class="!text-[24px] md:!text-[28px] !font-bold text-gray-800 mb-1 !leading-normal text-left ">
+            <?php echo esc_html( $product->get_name() ); ?>
+        </h3>
 
         <?php if ( $weight ) : ?>
-            <span class="text-gray-500 text-md mb-3 block text-left"><?= esc_html( $weight ); ?>g</span>
+            <span class="text-gray-500 text-md mb-3.75 block text-left"><?= esc_html( $weight ); ?>g</span>
         <?php endif; ?>
 
-        <div class="!text-[#76736ccc] !text-md leading-relaxed mb-6 flex-grow text-left">
+        <div class="!text-[#76736ccc] !text-md leading-[1.4] mb-3.75 md:mb-5 flex-grow text-left overflow-hidden"
+             style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">
             <?= $description; ?>
             Lorem ipsum dolor sit amet, at mei dolore tritani repudiandae. In his nemore vim ad prima vivendum consetetur. Viderer feugiat at pro, mea aperiam
         </div>
 
-        <div class="border-t border-gray-100 pt-5 flex items-center justify-between mt-auto">
+        <div class="border-t border-gray-100 pt-3.75 md:pt-5 flex items-center justify-between mt-auto">
             <?php if ( $price > 0 ) : ?>
                 <div class="flex gap-2">
                     <div class="product-price text-[#B45309] font-bold !text-2xl leading-none [&_del]:text-[#76736ccc] [&_del]:font-normal [&_del]:text-sm [&_del]:ml-2 [&_ins]:no-underline [&_.amount]:text-[#B45309]">

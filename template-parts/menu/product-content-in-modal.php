@@ -42,7 +42,7 @@ $alergeni       = "Gluten, Muștar (sos), Susan (posibil, în chiflă)";
         </style>
         <!-- Imagine -->
         <div class="relative p-4 pb-0">
-            <div class="aspect-[4/3] w-full overflow-hidden rounded-xl relative shadow-inner bg-gray-50">
+            <div class="aspect-[4/3] w-full object-cover overflow-hidden rounded-xl relative shadow-inner bg-gray-50">
 				<?php if ( $image_url ) : ?>
                     <img src="<?= esc_url( $image_url ); ?>" alt="<?= esc_attr( $product->get_name() ); ?>"
                          class="w-full h-full object-cover">
@@ -80,7 +80,7 @@ $alergeni       = "Gluten, Muștar (sos), Susan (posibil, în chiflă)";
                 <div class="!text-base text-gray-500 font-medium mb-4"><?= esc_html( $weight ); ?>g</div>
 			<?php endif; ?>
 
-            <div class="text-gray-700 leading-relaxed mb-6 text-lg">
+            <div class="text-gray-700 leading-[1.4] mb-6 text-lg">
 				<?= wp_kses_post( $description ); ?>
             </div>
 

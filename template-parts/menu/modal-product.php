@@ -4,7 +4,7 @@
 
 <dialog
         id="product-modal"
-        class="tw rounded-2xl bg-white p-0 max-w-[calc(100%-40px)] md:max-w-lg w-full max-h-[calc(90vh-40px)] md:max-h-[90vh] overflow-visible fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-2xl border-0 backdrop:bg-black/85 "
+        class="tw rounded-2xl bg-white p-0 max-w-[calc(100%-40px)] md:max-w-[520px] w-full max-h-[calc(90vh-40px)] md:max-h-[90vh] overflow-visible fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-2xl border-0 backdrop:bg-black/85 "
 >
     <div class="relative flex flex-col [&:has(.restem-spinner)]:min-h-[25vh]]">
         <form method="dialog">

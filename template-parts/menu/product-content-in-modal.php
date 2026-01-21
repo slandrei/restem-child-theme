@@ -19,7 +19,7 @@ $valori_nutri   = "Energie: 520 kcal, Proteine: 18 g, Carbohidrați: 62 g, Grăs
 $alergeni       = "Gluten, Muștar (sos), Susan (posibil, în chiflă)";
 ?>
 
-<div class="tw flex flex-col h-full overflow-hidden min-h-0 max-h-[calc(90vh-40px)] md:max-h-[90vh] opacity-0 animate-fade-in duration-300 ease-in-out">
+<div class="flex flex-col h-full overflow-hidden min-h-0 max-h-[calc(90vh-40px)] md:max-h-[90vh] opacity-0 animate-fade-in duration-300 ease-in-out">
 <!-- Zona scrollabila: Imagine + Conținut -->
     <div class="relative flex-1 overflow-y-auto overscroll-contain min-h-0"
          style="scrollbar-width: none; -ms-overflow-style: none; height: calc(90vh - 120px);">
@@ -75,20 +75,20 @@ $alergeni       = "Gluten, Muștar (sos), Susan (posibil, în chiflă)";
         </style>
 
         <!-- Conținut -->
-        <div class="restem-product-content px-8 pt-6 pb-8 overflow-y-auto">
+        <div class="restem-product-content px-4 pt-6 pb-8 overflow-y-auto">
         <h2 class="!text-3xl !font-bold text-gray-900 mb-1 !leading-normal"><?= esc_html( $product->get_name() ); ?></h2>
 			<?php if ( $weight ) : ?>
-                <div class="!text-base text-gray-500 font-medium mb-4"><?= esc_html( $weight ); ?>g</div>
+                <div class="!text-base text-[#22211F] font-medium mb-4"><?= esc_html( $weight ); ?>g</div>
 			<?php endif; ?>
 
-            <div class="text-gray-700 leading-[1.4] mb-6 text-lg">
+            <div class="text-[#22211F] leading-[1.4] mb-6 !text-xl">
 				<?= wp_kses_post( $description ); ?>
             </div>
 
             <div class="border-t border-gray-100 my-6"></div>
 
             <div class="space-y-6">
-                <p class="text-[#b07657] text-sm leading-relaxed italic">
+                <p class="text-[#b07657] !text-base leading-relaxed italic">
 					<?= esc_html( $nutrition_text ); ?>
                 </p>
 
@@ -99,7 +99,7 @@ $alergeni       = "Gluten, Muștar (sos), Susan (posibil, în chiflă)";
                                   d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"></path>
                         </svg>
                     </div>
-                    <div class="text-sm text-gray-600 leading-relaxed">
+                    <div class="text-base text-gray-600 leading-relaxed">
                         <strong class="text-gray-800">Gramaje detaliate:</strong> <?= esc_html( $gramaje ); ?>
                     </div>
                 </div>
@@ -111,7 +111,7 @@ $alergeni       = "Gluten, Muștar (sos), Susan (posibil, în chiflă)";
                                   d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
                         </svg>
                     </div>
-                    <div class="text-sm text-gray-600 leading-relaxed">
+                    <div class="text-base text-gray-600 leading-relaxed">
                         <strong class="text-gray-800">Valori nutriționale (per porție –
                             aproximativ):</strong> <?= esc_html( $valori_nutri ); ?>
                     </div>
@@ -124,8 +124,8 @@ $alergeni       = "Gluten, Muștar (sos), Susan (posibil, în chiflă)";
                                   d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
                         </svg>
                     </div>
-                    <div class="text-sm text-gray-600 leading-relaxed">
-                        <strong class="text-gray-800">Alergeni:</strong> <?= esc_html( $alergeni ); ?>
+                    <div class="!text-base text-gray-600 leading-relaxed">
+                        <strong class="!text-base text-gray-800">Alergeni:</strong> <?= esc_html( $alergeni ); ?>
                     </div>
                 </div>
             </div>

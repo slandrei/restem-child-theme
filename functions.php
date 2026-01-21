@@ -5,17 +5,21 @@ add_action('wp_enqueue_scripts', function () {
 	wp_localize_script( 'restaurant-menu-view-script', 'restem_utils', [
 		'ajaxurl' => admin_url( 'admin-ajax.php' )
 	] );
+
+	// Enqueue Alpine.js
+	wp_enqueue_script(
+		'alpine-js',
+		get_stylesheet_directory_uri() . '/assets/js/alpine.min.js',
+		array(),
+		'3.x.x',
+		array('strategy' => 'defer')
+	);
 }, 100);
-
-
 
 add_action('init', function () {
 	register_block_type(__DIR__ . '/blocks/menu');
 });
 
-add_action( 'wp_head', function () {
-	echo '<!-- tailwind test -->';
-});
 add_action('wp_head', function() {
 	/*
 	$reset_file = get_stylesheet_directory_uri() . '/assets/css/reset.css';

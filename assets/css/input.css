@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+/* Mandatory: Prevents flickering on page load */
+[x-cloak] {
+    display: none !important;
+}

@@ -9,11 +9,31 @@ $categories = get_terms( [
 ] );
 ?>
 
+<script>
+    function restemStickyCategories() {
+        return {
+            scrolled: false,
+
+            handleScroll() {
+                this.scrolled = (document.querySelector('.restem-product-categories').offsetTop > 0);
+            }
+        }
+    }
+
+</script>
+
 <div class="tw" data-menu-block>
-    <div class="restem-product-categories flex gap-3 mb-6 flex-wrap justify-center">
+
+    <div id="sticky-sentinel" class="absolute -top-[30px]"></div>
+    <div
+            x-data="restemStickyCategories()"
+            @scroll.window="handleScroll()"
+            class="restem-product-categories sticky top-[30px] z-10 flex gap-3 mb-6 flex-wrap justify-center px-4 md:px-5 lg:px-6 py-2"
+            :class="{ 'bg-white/50 backdrop-blur-md shadow-sm': scrolled }"
+    >
 		<?php foreach ( $categories as $index => $cat ): ?>
-            <button data-category="<?= esc_attr( $cat->slug ); ?>"
-                    class="flex-1 !text-gray-100 !bg-[#22211f] !border-[#22211f] data-[active-category='true']:!bg-[#b07657] data-[active-category='true']:!border-[#b07657]"
+            <button data-category="<?php echo esc_attr( $cat->slug ); ?>"
+                    class="!text-gray-100 !bg-[#22211f] !border-[#22211f] data-[active-category='true']:!bg-[#b07657] data-[active-category='true']:!border-[#b07657]"
                     data-active-category="<?= ( isset( $_GET['category'] ) && $_GET['category'] === $cat->slug ) || ( ! isset( $_GET['category'] ) && $index === 0 ) ? 'true' : 'false' ?>"
             >
 				<?= esc_html( $cat->name ); ?>
@@ -21,7 +41,7 @@ $categories = get_terms( [
 		<?php endforeach; ?>
     </div>
 
-    <div data-menu-products>
+    <div data-menu-products class="px-4 md:px-5 lg:px-6">
 		<?php
 		get_template_part(
 			'template-parts/menu/products',

@@ -12,7 +12,7 @@ add_action( 'wp_enqueue_scripts', function () {
 	// Enqueue GLightbox - https://github.com/biati-digital/glightbox
 	restem_enqueue_glightbox();
 
-}, 100 );
+}, 20 );
 
 function restem_enqueue_glightbox() {
 	// Enqueue glightbox CSS - TODO: wp_enqueue_style does not work correctly
@@ -51,15 +51,9 @@ add_action( 'init', function () {
 	register_block_type( __DIR__ . '/blocks/menu' );
 } );
 
-add_action( 'wp_head', function () {
-	/*
-	$reset_file = get_stylesheet_directory_uri() . '/assets/css/reset.css';
-	if($reset_file) {
-		$reset_uri = get_stylesheet_directory_uri() . '/assets/css/reset.css';
-		echo '<link rel="stylesheet" href="' . esc_url($reset_uri) . '" />';
-	}
-	*/
 
+/*
+add_action( 'wp_head', function () {
 	$css_file = get_stylesheet_directory() . '/assets/css/glightbox.min.css';
 	if ( file_exists( $css_file ) ) {
 		$css_url = get_stylesheet_directory_uri() . '/assets/css/glightbox.min.css';
@@ -72,6 +66,25 @@ add_action( 'wp_head', function () {
 		echo '<link rel="stylesheet" href="' . esc_url( $css_url ) . '" />';
 	}
 
+} );*/
+
+add_action( 'wp_head', function () {
+	$files = [
+		'/assets/css/glightbox.min.css',
+		'/assets/css/output.css'
+	];
+
+	foreach ($files as $path) {
+		$full_path = get_stylesheet_directory() . $path;
+		$name = "restem-" . basename($full_path);
+
+		if ( file_exists( $full_path ) ) {
+			// Append the last modified timestamp as a version
+			$version = filemtime($full_path);
+			$url = get_stylesheet_directory_uri() . $path . '?v=' . $version;
+			echo '<link rel="stylesheet" id="' . $name .  '" href="' . esc_url( $url ) . '" />' . PHP_EOL;
+		}
+	}
 } );
 
 // Modal Product

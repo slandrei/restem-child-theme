@@ -274,6 +274,9 @@
   .mt-1 {
     margin-top: calc(var(--spacing) * 1);
   }
+  .mt-\[90px\] {
+    margin-top: 90px;
+  }
   .mt-auto {
     margin-top: auto;
   }
@@ -505,6 +508,9 @@
   .bg-\[\#7BA05B\]\/90 {
     background-color: color-mix(in oklab, #7BA05B 90%, transparent);
   }
+  .bg-\[\#AF9C91\]\/20 {
+    background-color: color-mix(in oklab, #AF9C91 20%, transparent);
+  }
   .bg-black\/20 {
     background-color: color-mix(in srgb, #000 20%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
@@ -559,6 +565,9 @@
   .\!px-6 {
     padding-inline: calc(var(--spacing) * 6) !important;
   }
+  .\!px-8 {
+    padding-inline: calc(var(--spacing) * 8) !important;
+  }
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
   }
@@ -571,11 +580,23 @@
   .\!py-3 {
     padding-block: calc(var(--spacing) * 3) !important;
   }
+  .\!py-4 {
+    padding-block: calc(var(--spacing) * 4) !important;
+  }
   .py-2 {
     padding-block: calc(var(--spacing) * 2);
   }
   .py-3 {
     padding-block: calc(var(--spacing) * 3);
+  }
+  .py-4 {
+    padding-block: calc(var(--spacing) * 4);
+  }
+  .py-10 {
+    padding-block: calc(var(--spacing) * 10);
+  }
+  .py-\[90px\] {
+    padding-block: 90px;
   }
   .pt-3\.75 {
     padding-top: calc(var(--spacing) * 3.75);
@@ -585,6 +606,9 @@
   }
   .pt-6 {
     padding-top: calc(var(--spacing) * 6);
+  }
+  .pt-\[90px\] {
+    padding-top: 90px;
   }
   .pb-5 {
     padding-bottom: calc(var(--spacing) * 5);
@@ -893,6 +917,12 @@
       padding-top: calc(var(--spacing) * 5);
     }
   }
+  .md\:\!text-lg {
+    @media (width >= 48rem) {
+      font-size: var(--text-lg) !important;
+      line-height: var(--tw-leading, var(--text-lg--line-height)) !important;
+    }
+  }
   .md\:\!text-\[28px\] {
     @media (width >= 48rem) {
       font-size: 28px !important;
@@ -906,6 +936,26 @@
   .lg\:px-6 {
     @media (width >= 64rem) {
       padding-inline: calc(var(--spacing) * 6);
+    }
+  }
+  .lg\:px-7\.5 {
+    @media (width >= 64rem) {
+      padding-inline: calc(var(--spacing) * 7.5);
+    }
+  }
+  .lg\:px-9\.5 {
+    @media (width >= 64rem) {
+      padding-inline: calc(var(--spacing) * 9.5);
+    }
+  }
+  .lg\:px-10 {
+    @media (width >= 64rem) {
+      padding-inline: calc(var(--spacing) * 10);
+    }
+  }
+  .xl\:grid-cols-3 {
+    @media (width >= 80rem) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
   .xl\:grid-cols-4 {

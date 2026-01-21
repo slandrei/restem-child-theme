@@ -94,9 +94,9 @@ $is_vegetarian = has_term( 'vegetarian', 'product_cat', $product->get_id() );
         <?php endif; ?>
 
         <div class="!text-[#76736ccc] !text-md leading-[1.4] mb-3.75 md:mb-5 flex-grow text-left overflow-hidden"
-             style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">
+             style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
             <?= $description; ?>
-            Lorem ipsum dolor sit amet, at mei dolore tritani repudiandae. In his nemore vim ad prima vivendum consetetur. Viderer feugiat at pro, mea aperiam
+            Lorem ipsum dolor sit amet, at mei dolore tritani repudiandae. In his nemore vim ad prima vivendum consetetur. Viderer feugiat at pro, mea aperiam. Lorem ipsum dolor sit amet, at mei dolore tritani repudiandae. In his nemore vim ad prima vivendum consetetur. Viderer feugiat at pro, mea aperiam.
         </div>
 
         <div class="border-t border-gray-100 pt-3.75 md:pt-5 flex items-center justify-between mt-auto">

@@ -24,12 +24,12 @@ $categories = get_terms( [
 
 <div class="tw" data-menu-block>
 
-    <div id="sticky-sentinel" class="absolute -top-[30px]"></div>
+    <div id="sticky-sentinel" class="absolute -top-2.5"></div>
     <div
             x-data="restemStickyCategories()"
             @scroll.window="handleScroll()"
-            class="restem-product-categories sticky top-[30px] z-10 flex gap-3 mb-6 flex-wrap justify-center px-4 md:px-5 lg:px-6 py-2"
-            :class="{ 'bg-white/50 backdrop-blur-md shadow-sm': scrolled }"
+            class="restem-product-categories sticky top-0 z-10 flex gap-3 mb-6 overflow-x-auto md:flex-wrap justify-start md:justify-center px-4 md:px-5 lg:px-6 py-2"
+            :class="{ 'bg-white/50 backdrop-blur-md justify-start shadow-sm': scrolled }"
     >
 		<?php foreach ( $categories as $index => $cat ): ?>
             <button data-category="<?php echo esc_attr( $cat->slug ); ?>"

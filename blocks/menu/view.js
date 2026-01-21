@@ -58,7 +58,7 @@
             this.element.showModal();
 
             // Load data
-            postAjax('restem_load_product_modal', { id: productId })
+            postAjax('restem_load_product_modal', {id: productId})
                 .then(html => {
                     if (html) {
                         this.content.innerHTML = html;
@@ -87,23 +87,39 @@
         init(block) {
             const productsContainer = block.querySelector('[data-menu-products]');
             const categoryButtons = block.querySelectorAll('[data-category]');
+            const sentinel = document.getElementById('sticky-sentinel');
 
             // Category Filter Click
             categoryButtons.forEach(btn => {
                 btn.addEventListener('click', async () => {
-                    const category = btn.dataset.category;
-                    if (state.isLoading) return;
+                    try {
+                        const category = btn.dataset.category;
+                        if (state.isLoading) return;
 
-                    state.isLoading = true;
-                    this.updateUI(block, btn, category);
+                        state.isLoading = true;
+                        this.updateUI(block, btn, category);
 
-                    const html = await postAjax('restem_filter_menu', { category });
-                    if (html) {
-                        productsContainer.innerHTML = html;
-                        // Re-bind modal events to new products
-                        this.bindProductEvents(productsContainer);
+                        const html = await postAjax('restem_filter_menu', {category});
+                        if (html) {
+                            productsContainer.innerHTML = html;
+                            // Re-bind modal events to new products
+                            this.bindProductEvents(productsContainer);
+
+                            if (sentinel) {
+                                setTimeout(() => sentinel.scrollIntoView({behavior: 'smooth', block: 'nearest'}), 1);
+                            } else {
+                                alert('no sentinel')
+                            }
+
+                        }
+                        state.isLoading = false;
+                    } catch (err) {
+                        alert("To improve our services, please report the error - MenuFetchProducts:", err?.message);
+
+                    } finally {
+                        state.isLoading = false;
                     }
-                    state.isLoading = false;
+
                 });
             });
 

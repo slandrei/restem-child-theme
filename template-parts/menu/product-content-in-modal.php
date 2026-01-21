@@ -24,8 +24,8 @@ $alergeni       = "Gluten, Muștar (sos), Susan (posibil, în chiflă)";
     <div class="relative flex-1 overflow-y-auto overscroll-contain min-h-0"
          style="scrollbar-width: none; -ms-overflow-style: none; height: calc(90vh - 120px);">
     <style>
-            .overflow-y-auto::-webkit-scrollbar {
-                display: none;
+            .overflow-y-auto::-webkit-scrollbar, .overflow-x-auto::-webkit-scrollbar {
+                display: none; /* Safari and Chrome */
             }
 
             .transition-[height] {

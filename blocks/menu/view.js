@@ -60,8 +60,15 @@
             // Load data
             postAjax('restem_load_product_modal', { id: productId })
                 .then(html => {
-                    if (html) this.content.innerHTML = html;
+                    if (html) {
+                        this.content.innerHTML = html;
+
+                        // If you add new images via AJAX, run this:
+                        lightbox.reload();
+                    }
                 });
+
+
         },
 
         onClose() {
@@ -117,9 +124,13 @@
         },
 
         bindProductEvents(container) {
+
             container.querySelectorAll('[data-open-modal]').forEach(btn => {
                 btn.onclick = () => Modal.open(btn.dataset.productId);
             });
+
+            // If you add new images via AJAX, run this:
+            lightbox.reload();
         }
     };
 

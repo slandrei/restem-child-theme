@@ -22,7 +22,9 @@ $is_vegetarian = has_term( 'vegetarian', 'product_cat', $product->get_id() );
         <div class="w-full overflow-hidden rounded-lg relative">
             <?php if ( $image_url ) : ?>
                 <img src="<?= esc_url( $image_url ); ?>" alt="<?= esc_attr( $product->get_name() ); ?>"
-                     class="w-full max-h-[230px] md:max-h-[280px] min-h-[230px] md:min-h-[280px] h-full object-cover elect-none pointer-events-none">
+                     class="glightbox w-full max-h-[230px] md:max-h-[280px] min-h-[230px] md:min-h-[280px] h-full object-cover"
+                     data-gallery="gallery-<?= $product->get_id(); ?>"
+                >
             <?php else : ?>
                 <div class="w-full h-full bg-gray-100 flex items-center justify-center">
                     <span class="text-[#76736ccc]">Fără imagine</span>

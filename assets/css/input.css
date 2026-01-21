@@ -4,3 +4,9 @@
 [x-cloak] {
     display: none !important;
 }
+
+
+/* Custom GLightbox style */
+.glightbox-container .gslide-description {
+    display: none !important;
+}

@@ -45,7 +45,8 @@ $alergeni       = "Gluten, Muștar (sos), Susan (posibil, în chiflă)";
             <div class="aspect-[4/3] w-full object-cover overflow-hidden rounded-xl relative shadow-inner bg-gray-50">
 				<?php if ( $image_url ) : ?>
                     <img src="<?= esc_url( $image_url ); ?>" alt="<?= esc_attr( $product->get_name() ); ?>"
-                         class="w-full h-full object-cover">
+                         class="glightbox w-full h-full object-cover"
+                    >
 				<?php else : ?>
                     <div class="w-full h-full flex items-center justify-center text-gray-300">
                         <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">

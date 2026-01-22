@@ -48,7 +48,11 @@ function restem_enqueue_alpine_js() {
 
 // Register Menu block
 add_action( 'init', function () {
-	register_block_type( __DIR__ . '/blocks/menu' );
+	$block_list = ['menu', 'daily-menu'];
+
+	foreach ($block_list as $block) {
+		register_block_type( __DIR__ . '/blocks/' . $block );
+	}
 } );
 
 

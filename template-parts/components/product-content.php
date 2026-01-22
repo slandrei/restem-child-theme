@@ -52,7 +52,7 @@ $sale_price    = $sale_price ? number_format( (float) ( $sale_price ), 2 ) : '';
 
     <div class="border-t border-gray-100 pt-3.75 md:pt-5 flex items-center justify-between mt-auto">
 		<?php if ( $price > 0 ) : ?>
-            <div class="flex gap-2">
+            <div class="flex flex-wrap gap-x-2 gap-y-0">
                 <div class="product-price text-[#B45309] font-bold !text-2xl leading-none [&_del]:text-[#76736ccc] [&_del]:font-normal [&_del]:text-sm [&_del]:ml-2 [&_ins]:no-underline [&_.amount]:text-[#B45309]">
 					<?= $price; ?> lei
                 </div>

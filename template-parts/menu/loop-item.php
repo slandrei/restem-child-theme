@@ -8,7 +8,7 @@ $image_url   = wp_get_attachment_image_url( $image_id, 'large' );
 
 ?>
 
-<div class="bg-white rounded-xl border border-gray-100 overflow-hidden flex flex-col h-full opacity-0 animate-fade-in">
+<div class="restem-product flex-1 bg-white rounded-xl border border-gray-100 overflow-hidden flex flex-col h-full opacity-0 animate-fade-in">
     <!-- Image -->
     <?php
     get_template_part(

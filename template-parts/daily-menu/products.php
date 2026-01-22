@@ -16,7 +16,7 @@ if ( ! $products ) {
         <strong>Disponibil luni – vineri, între 12:00 – 16:00.</strong>
         În limita stocului zilnic.
     </div>
-    <div class="restem-daily-menu-products flex flex-col lg:flex-row justify-center gap-4 px-4 md:px-5 lg:px-10">
+    <div class="restem-daily-menu-products grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:flex-row justify-center items-center gap-4 px-4 md:px-5 lg:px-10">
         <?php
         foreach ( $products as $product ) {
             get_template_part(

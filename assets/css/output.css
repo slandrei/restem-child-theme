@@ -922,6 +922,11 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
+  .md\:grid-cols-3 {
+    @media (width >= 48rem) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
   .md\:flex-row {
     @media (width >= 48rem) {
       flex-direction: row;
@@ -1053,6 +1058,16 @@
   .\[\&\:has\(\.restem-spinner\)\]\:min-h-\[25vh\] {
     &:has(.restem-spinner) {
       min-height: 25vh;
+    }
+  }
+  .\[\&\>\.restem-product\]\:max-w-\[50\%\] {
+    &>.restem-product {
+      max-width: 50%;
+    }
+  }
+  .\[\&\>\[\.restem-product\]\]\:max-w-\[50\%\] {
+    &>[.restem-product] {
+      max-width: 50%;
     }
   }
 }

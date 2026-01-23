@@ -22,7 +22,7 @@ if ( ! $categories ) {
                 const element = document.querySelector('.restem-product-categories');
                 const rect = element.getBoundingClientRect();
 
-                this.scrolled = rect.top === 0;
+                this.scrolled = rect.top <= 0;
             }
         }
     }
@@ -32,6 +32,7 @@ if ( ! $categories ) {
 
 <div
     x-data="restemStickyCategories()"
+    x-init="handleScroll()"
     @scroll.window="handleScroll()"
     class="restem-product-categories sticky top-0 scrollbar-hide z-10 flex gap-3 overflow-x-auto lg:flex-wrap justify-start lg:justify-center px-2 md:px-5 lg:px-6 py-2 "
     :class="{ 'bg-white backdrop-blur-md justify-start shadow-sm': scrolled }"

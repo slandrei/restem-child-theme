@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import 'tailwind-scrollbar-hide/v4';
+@import './kubio-vars.css';
 
 /* Mandatory: Prevents flickering on page load */
 [x-cloak] {

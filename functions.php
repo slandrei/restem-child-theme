@@ -1,5 +1,12 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
+
+require_once __DIR__ . '/lib/constants.php';
+require_once __DIR__ . '/lib/auto-generated-kubio-theme.php';
+
 add_action( 'wp_enqueue_scripts', function () {
 	// Register ajaxurl for frontend scripts
 	wp_localize_script( 'restaurant-menu-view-script', 'restem_utils', [
@@ -114,6 +121,7 @@ add_action( 'wp_head', function () {
 		'/assets/css/minified/glightbox.min.css',
 		'/assets/css/minified/tippy.min.css',
 		'/assets/css/minified/backdrop.min.css', // addon for tippy backdrop styling
+		'/assets/css/kubio-vars.css', // auto-generated kubio theme variables
 	];
 
 	if ( defined( 'RESTEM_PRODUCTION' ) && RESTEM_PRODUCTION === 'true' ) {
@@ -140,7 +148,6 @@ add_action( 'wp_head', function () {
 add_action( 'wp_footer', function () {
 	get_template_part( 'template-parts/menu/modal-product', null );
 } );
-
 
 // Ajax functions
 require_once get_stylesheet_directory() . '/inc/ajax.php';

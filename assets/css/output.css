@@ -53,6 +53,7 @@
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
+    --color-kubio-color-1: rgb(var(--kubio-color-1, 0, 0, 255));
   }
 }
 @layer base {
@@ -518,6 +519,9 @@
   }
   .bg-gray-900 {
     background-color: var(--color-gray-900);
+  }
+  .bg-kubio-color-1 {
+    background-color: var(--color-kubio-color-1);
   }
   .bg-white {
     background-color: var(--color-white);

@@ -11,11 +11,18 @@ module.exports = {
     },
     theme: {
         extend: {
-            colors: {
-                primary: '#e11d48',
-                "kubio-color-1": "rgb(176, 118, 87)",
-                "kubio-color-6": "rgb(33, 30, 31)",
-            }
         }
-    }
+    },
+    safelist: [
+        {
+            pattern: /^bg-kubio-color-/, // Matches bg-kubio-color-1, bg-kubio-color-1-variant-1, etc.
+            variants: ['hover', 'focus'], // Include hover states if you need them
+        },
+        {
+            pattern: /^text-kubio-color-/,
+        },
+        {
+            pattern: /^border-kubio-color-/,
+        }
+    ],
 }

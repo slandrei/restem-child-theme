@@ -121,7 +121,6 @@ add_action( 'wp_head', function () {
 		'/assets/css/minified/glightbox.min.css',
 		'/assets/css/minified/tippy.min.css',
 		'/assets/css/minified/backdrop.min.css', // addon for tippy backdrop styling
-		'/assets/css/kubio-vars.css', // auto-generated kubio theme variables
 	];
 
 	if ( defined( 'RESTEM_PRODUCTION' ) && RESTEM_PRODUCTION === 'true' ) {

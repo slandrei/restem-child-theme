@@ -7,6 +7,32 @@ if ( ! defined( 'ABSPATH' ) ) {
 require_once __DIR__ . '/lib/constants.php';
 require_once __DIR__ . '/lib/auto-generated-kubio-theme.php';
 
+add_action( 'wp_head', function () {
+	$files = [
+		'/assets/css/minified/glightbox.min.css',
+		'/assets/css/minified/tippy.min.css',
+		'/assets/css/minified/backdrop.min.css', // addon for tippy backdrop styling
+	];
+
+	if ( defined( 'RESTEM_PRODUCTION' ) && RESTEM_PRODUCTION === 'true' ) {
+		$files[] = '/assets/css/minified/output.min.css';
+	} else {
+		$files[] = '/assets/css/output.css';
+	}
+
+	foreach ( $files as $path ) {
+		$full_path = get_stylesheet_directory() . $path;
+		$name      = "restem-" . basename( $full_path );
+
+		if ( file_exists( $full_path ) ) {
+			// Append the last modified timestamp as a version
+			$version = filemtime( $full_path );
+			$url     = get_stylesheet_directory_uri() . $path . '?v=' . $version;
+			echo '<link rel="stylesheet" id="' . $name . '" href="' . esc_url( $url ) . '" />' . PHP_EOL;
+		}
+	}
+} );
+
 add_action( 'wp_enqueue_scripts', function () {
 	// Register ajaxurl for frontend scripts
 	wp_localize_script( 'restaurant-menu-view-script', 'restem_utils', [
@@ -96,50 +122,6 @@ add_action( 'init', function () {
 
 	foreach ( $block_list as $block ) {
 		register_block_type( __DIR__ . '/blocks/' . $block );
-	}
-} );
-
-
-/*
-add_action( 'wp_head', function () {
-	$css_file = get_stylesheet_directory() . '/assets/css/glightbox.min.css';
-	if ( file_exists( $css_file ) ) {
-		$css_url = get_stylesheet_directory_uri() . '/assets/css/glightbox.min.css';
-		echo '<link rel="stylesheet" href="' . esc_url( $css_url ) . '" />';
-	}
-
-	$css_file = get_stylesheet_directory() . '/assets/css/output.css';
-	if ( file_exists( $css_file ) ) {
-		$css_url = get_stylesheet_directory_uri() . '/assets/css/output.css';
-		echo '<link rel="stylesheet" href="' . esc_url( $css_url ) . '" />';
-	}
-
-} );*/
-
-add_action( 'wp_head', function () {
-	$files = [
-		'/assets/css/minified/glightbox.min.css',
-		'/assets/css/minified/tippy.min.css',
-		'/assets/css/minified/backdrop.min.css', // addon for tippy backdrop styling
-	];
-
-	if ( defined( 'RESTEM_PRODUCTION' ) && RESTEM_PRODUCTION === 'true' ) {
-		$files[] = '/assets/css/minified/output.min.css';
-	} else {
-		$files[] = '/assets/css/output.css';
-	}
-
-
-	foreach ( $files as $path ) {
-		$full_path = get_stylesheet_directory() . $path;
-		$name      = "restem-" . basename( $full_path );
-
-		if ( file_exists( $full_path ) ) {
-			// Append the last modified timestamp as a version
-			$version = filemtime( $full_path );
-			$url     = get_stylesheet_directory_uri() . $path . '?v=' . $version;
-			echo '<link rel="stylesheet" id="' . $name . '" href="' . esc_url( $url ) . '" />' . PHP_EOL;
-		}
 	}
 } );
 

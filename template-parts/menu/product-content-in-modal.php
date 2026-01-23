@@ -62,17 +62,17 @@ $alergeni       = "Gluten, Muștar (sos), Susan (posibil, în chiflă)";
         <div class="restem-product-content px-4 pt-6 pb-8 overflow-y-auto">
             <h2 class="!text-3xl !font-bold text-gray-900 mb-1 !leading-normal"><?= esc_html( $product->get_name() ); ?></h2>
             <?php if ( $weight ) : ?>
-                <div class="!text-base text-[#22211F] font-medium mb-4"><?= esc_html( $weight ); ?>g</div>
+                <div class="!text-base text-kubio-color-6 font-medium mb-4"><?= esc_html( $weight ); ?>g</div>
             <?php endif; ?>
 
-            <div class="text-[#22211F] leading-[1.4] mb-6 !text-xl">
+            <div class="text-kubio-color-6 leading-[1.4] mb-6 !text-xl">
                 <?= wp_kses_post( $description ); ?>
             </div>
 
             <div class="border-t border-gray-100 my-6"></div>
 
             <div class="space-y-6">
-                <p class="text-[#b07657] !text-base leading-relaxed italic">
+                <p class="text-kubio-color-1-variant-2 !text-base leading-relaxed italic">
                     <?= esc_html( $nutrition_text ); ?>
                 </p>
 
@@ -121,11 +121,11 @@ $alergeni       = "Gluten, Muștar (sos), Susan (posibil, în chiflă)";
         <div class="flex items-center justify-between">
             <?php if ( $price > 0 ) : ?>
                 <div class="flex gap-2">
-                    <div class="product-price text-[#B45309] font-bold !text-2xl leading-none [&_del]:text-[#76736ccc] [&_del]:font-normal [&_del]:text-sm [&_del]:ml-2 [&_ins]:no-underline [&_.amount]:text-[#B45309]">
+                    <div class="product-price text-kubio-color-1 font-bold !text-2xl leading-none [&_del]:text-kubio-color-6-variant-2/80 [&_del]:font-normal [&_del]:text-sm [&_del]:ml-2 [&_ins]:no-underline [&_.amount]:text-kubio-color-1">
                         <?= $price; ?> lei
                     </div>
                     <?php if ( $sale_price ) : ?>
-                        <div class="product-old-price text-[#76736c] text-lg font-bold line-through">
+                        <div class="product-old-price text-kubio-color-6-variant-2 text-lg font-bold line-through">
                             &nbsp;<?= $sale_price; ?> lei
                         </div>
                     <?php endif; ?>

@@ -19,7 +19,7 @@ $is_vegetarian    = has_term( 'vegetarian', 'product_cat', $product->get_id() );
             >
         <?php else : ?>
             <div class="w-full h-full bg-gray-100 flex items-center justify-center">
-                <span class="text-[#76736ccc]">Fără imagine</span>
+                <span class="text-kubio-color-6-variant-2/80">Fără imagine</span>
             </div>
         <?php endif; ?>
 

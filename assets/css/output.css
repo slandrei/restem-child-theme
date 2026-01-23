@@ -9,7 +9,6 @@
       "Courier New", monospace;
     --color-red-700: oklch(50.5% 0.213 27.518);
     --color-gray-100: oklch(96.7% 0.003 264.542);
-    --color-gray-300: oklch(87.2% 0.01 258.338);
     --color-gray-500: oklch(55.1% 0.027 264.364);
     --color-gray-600: oklch(44.6% 0.03 256.802);
     --color-gray-700: oklch(37.3% 0.034 259.733);
@@ -30,12 +29,6 @@
     --text-2xl--line-height: calc(2 / 1.5);
     --text-3xl: 1.875rem;
     --text-3xl--line-height: calc(2.25 / 1.875);
-    --text-5xl: 3rem;
-    --text-5xl--line-height: 1;
-    --text-6xl: 3.75rem;
-    --text-6xl--line-height: 1;
-    --text-7xl: 4.5rem;
-    --text-7xl--line-height: 1;
     --font-weight-normal: 400;
     --font-weight-medium: 500;
     --font-weight-bold: 700;
@@ -53,7 +46,13 @@
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
-    --color-kubio-color-5: rgb(255, 249, 244);
+    --color-kubio-color-1: rgb(176, 118, 87);
+    --color-kubio-color-4: rgb(165, 165, 141);
+    --color-kubio-color-6: rgb(34, 33, 31);
+    --color-kubio-color-1-variant-1: rgb(175, 156, 145);
+    --color-kubio-color-1-variant-2: rgb(176, 118, 87);
+    --color-kubio-color-1-variant-5: rgb(5, 4, 2);
+    --color-kubio-color-6-variant-2: rgb(118, 115, 108);
   }
 }
 @layer base {
@@ -487,6 +486,9 @@
   .\!border-gray-800 {
     border-color: var(--color-gray-800) !important;
   }
+  .\!border-kubio-color-6 {
+    border-color: var(--color-kubio-color-6) !important;
+  }
   .border-\[\#B45309\] {
     border-color: #B45309;
   }
@@ -495,6 +497,9 @@
   }
   .\!bg-\[\#22211f\] {
     background-color: #22211f !important;
+  }
+  .\!bg-kubio-color-6 {
+    background-color: var(--color-kubio-color-6) !important;
   }
   .\!bg-transparent {
     background-color: transparent !important;
@@ -519,6 +524,18 @@
   }
   .bg-gray-900 {
     background-color: var(--color-gray-900);
+  }
+  .bg-kubio-color-1-variant-1\/20 {
+    background-color: color-mix(in srgb, rgb(175, 156, 145) 20%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-kubio-color-1-variant-1) 20%, transparent);
+    }
+  }
+  .bg-kubio-color-4\/50 {
+    background-color: color-mix(in srgb, rgb(165, 165, 141) 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-kubio-color-4) 50%, transparent);
+    }
   }
   .bg-white {
     background-color: var(--color-white);
@@ -667,6 +684,12 @@
   .\!text-gray-800 {
     color: var(--color-gray-800) !important;
   }
+  .\!text-kubio-color-6-variant-2\/80 {
+    color: color-mix(in srgb, rgb(118, 115, 108) 80%, transparent) !important;
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-kubio-color-6-variant-2) 80%, transparent) !important;
+    }
+  }
   .text-\[\#22211F\] {
     color: #22211F;
   }
@@ -699,6 +722,33 @@
   }
   .text-gray-900 {
     color: var(--color-gray-900);
+  }
+  .text-kubio-color-1 {
+    color: var(--color-kubio-color-1);
+  }
+  .text-kubio-color-1-variant-2 {
+    color: var(--color-kubio-color-1-variant-2);
+  }
+  .text-kubio-color-1-variant-5 {
+    color: var(--color-kubio-color-1-variant-5);
+  }
+  .text-kubio-color-6 {
+    color: var(--color-kubio-color-6);
+  }
+  .text-kubio-color-6-variant-2 {
+    color: var(--color-kubio-color-6-variant-2);
+  }
+  .text-kubio-color-6-variant-2\/80 {
+    color: color-mix(in srgb, rgb(118, 115, 108) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-kubio-color-6-variant-2) 80%, transparent);
+    }
+  }
+  .text-kubio-color-6\/50 {
+    color: color-mix(in srgb, rgb(34, 33, 31) 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-kubio-color-6) 50%, transparent);
+    }
   }
   .text-red-700 {
     color: var(--color-red-700);
@@ -808,6 +858,13 @@
       }
     }
   }
+  .hover\:\!bg-kubio-color-6 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-kubio-color-6) !important;
+      }
+    }
+  }
   .hover\:bg-black {
     &:hover {
       @media (hover: hover) {
@@ -842,9 +899,19 @@
       border-color: #b07657 !important;
     }
   }
+  .data-\[active-category\=\'true\'\]\:\!border-kubio-color-1-variant-2 {
+    &[data-active-category='true'] {
+      border-color: var(--color-kubio-color-1-variant-2) !important;
+    }
+  }
   .data-\[active-category\=\'true\'\]\:\!bg-\[\#b07657\] {
     &[data-active-category='true'] {
       background-color: #b07657 !important;
+    }
+  }
+  .data-\[active-category\=\'true\'\]\:\!bg-kubio-color-1-variant-2 {
+    &[data-active-category='true'] {
+      background-color: var(--color-kubio-color-1-variant-2) !important;
     }
   }
   .md\:mb-5 {
@@ -963,6 +1030,11 @@
       color: #B45309;
     }
   }
+  .\[\&_\.amount\]\:text-kubio-color-1 {
+    & .amount {
+      color: var(--color-kubio-color-1);
+    }
+  }
   .\[\&_del\]\:ml-2 {
     & del {
       margin-left: calc(var(--spacing) * 2);
@@ -983,6 +1055,14 @@
   .\[\&_del\]\:text-\[\#76736ccc\] {
     & del {
       color: #76736ccc;
+    }
+  }
+  .\[\&_del\]\:text-kubio-color-6-variant-2\/80 {
+    & del {
+      color: color-mix(in srgb, rgb(118, 115, 108) 80%, transparent);
+      @supports (color: color-mix(in lab, red, red)) {
+        color: color-mix(in oklab, var(--color-kubio-color-6-variant-2) 80%, transparent);
+      }
     }
   }
   .\[\&_ins\]\:no-underline {

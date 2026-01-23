@@ -39,7 +39,7 @@ if ( ! $categories ) {
 >
 	<?php foreach ( $categories as $index => $cat ): ?>
         <button data-category="<?php echo esc_attr( $cat->slug ); ?>"
-                class="!text-gray-100 md:!text-lg !font-bold !bg-[#22211f] !border-[#22211f] data-[active-category='true']:!bg-[#b07657] data-[active-category='true']:!border-[#b07657] active:scale-95 md:active:scale-100 transition-all duration-75 md:!px-8 md:!py-4"
+                class="!text-gray-100 md:!text-lg !font-bold !bg-kubio-color-6 !border-kubio-color-6 data-[active-category='true']:!bg-kubio-color-1-variant-2 data-[active-category='true']:!border-kubio-color-1-variant-2 active:scale-95 md:active:scale-100 transition-all duration-75 md:!px-8 md:!py-4"
                 data-active-category="<?= ( isset( $_GET['category'] ) && $_GET['category'] === $cat->slug ) || ( ! isset( $_GET['category'] ) && $index === 0 ) ? 'true' : 'false' ?>"
         >
 			<?= esc_html( $cat->name ); ?>

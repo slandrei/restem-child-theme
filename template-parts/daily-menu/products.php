@@ -12,7 +12,7 @@ if ( ! $products ) {
 
 <div class="restem-daily-menu-block flex flex-col gap-0">
     <h1 class="'!leading-normal !text-6.5xl !font-medium !m-0 !mb-1 text-center px-4">Meniul zilei - <?= $price ?> lei</h1>
-    <div class="text-center mb-10 text-[#22211f80] px-4">
+    <div class="text-center mb-10 text-kubio-color-6/50 px-4">
         <strong >Disponibil luni – vineri, între 12:00 – 16:00.</strong>
         În limita stocului zilnic.
     </div>

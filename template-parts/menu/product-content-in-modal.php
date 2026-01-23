@@ -20,10 +20,10 @@ $alergeni       = "Gluten, Muștar (sos), Susan (posibil, în chiflă)";
 ?>
 
 <div class="flex flex-col h-full overflow-hidden min-h-0 max-h-[calc(90vh-40px)] md:max-h-[90vh] opacity-0 animate-fade-in duration-300 ease-in-out">
-<!-- Zona scrollabila: Imagine + Conținut -->
+    <!-- Zona scrollabila: Imagine + Conținut -->
     <div class="relative flex-1 overflow-y-auto overscroll-contain min-h-0"
          style="scrollbar-width: none; -ms-overflow-style: none; height: calc(90vh - 120px);">
-    <style>
+        <style>
             .overflow-y-auto::-webkit-scrollbar, .overflow-x-auto::-webkit-scrollbar {
                 display: none; /* Safari and Chrome */
             }
@@ -41,32 +41,16 @@ $alergeni       = "Gluten, Muștar (sos), Susan (posibil, în chiflă)";
             }
         </style>
         <!-- Imagine -->
-        <div class="relative px-4">
-            <div class="aspect-[4/3] w-full object-cover overflow-hidden rounded-xl relative shadow-inner bg-gray-50">
-				<?php if ( $image_url ) : ?>
-                    <img src="<?= esc_url( $image_url ); ?>" alt="<?= esc_attr( $product->get_name() ); ?>"
-                         class="glightbox w-full h-full object-cover"
-                    >
-				<?php else : ?>
-                    <div class="w-full h-full flex items-center justify-center text-gray-300">
-                        <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                                  d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                        </svg>
-                    </div>
-				<?php endif; ?>
-
-                <!-- Iconiță Vegetarian -->
-				<?php if ( $is_vegetarian ) : ?>
-                    <div class="absolute top-4 left-4 bg-[#7BA05B]/90 backdrop-blur-sm p-2 rounded-xl shadow-lg">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2 12C2 12 5 2 12 2C12 2 19 2 22 5C22 5 22 12 12 12C12 12 22 12 22 19C22 19 22 22 19 22C19 22 12 22 12 12C12 12 12 22 5 22C5 22 2 22 2 19C2 19 2 12 12 12C12 12 2 12 2 5C2 5 2 2 5 2C5 2 12 2 12 12"
-                                  stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-				<?php endif; ?>
-            </div>
-        </div>
+        <?php
+        get_template_part(
+                'template-parts/components/product-image',
+                null,
+                [
+                        'product'           => $product,
+                        'disable_lightbox' => 'true'
+                ]
+        )
+        ?>
 
         <style>
             .restem-product-content * {
@@ -76,20 +60,20 @@ $alergeni       = "Gluten, Muștar (sos), Susan (posibil, în chiflă)";
 
         <!-- Conținut -->
         <div class="restem-product-content px-4 pt-6 pb-8 overflow-y-auto">
-        <h2 class="!text-3xl !font-bold text-gray-900 mb-1 !leading-normal"><?= esc_html( $product->get_name() ); ?></h2>
-			<?php if ( $weight ) : ?>
+            <h2 class="!text-3xl !font-bold text-gray-900 mb-1 !leading-normal"><?= esc_html( $product->get_name() ); ?></h2>
+            <?php if ( $weight ) : ?>
                 <div class="!text-base text-[#22211F] font-medium mb-4"><?= esc_html( $weight ); ?>g</div>
-			<?php endif; ?>
+            <?php endif; ?>
 
             <div class="text-[#22211F] leading-[1.4] mb-6 !text-xl">
-				<?= wp_kses_post( $description ); ?>
+                <?= wp_kses_post( $description ); ?>
             </div>
 
             <div class="border-t border-gray-100 my-6"></div>
 
             <div class="space-y-6">
                 <p class="text-[#b07657] !text-base leading-relaxed italic">
-					<?= esc_html( $nutrition_text ); ?>
+                    <?= esc_html( $nutrition_text ); ?>
                 </p>
 
                 <div class="flex gap-4">
@@ -150,7 +134,7 @@ $alergeni       = "Gluten, Muștar (sos), Susan (posibil, în chiflă)";
                 <span class="text-red-700">Indisponibil</span>
             <?php endif; ?>
 
-          <!--  <a href="<?php /*= esc_url( $product->add_to_cart_url() ); */?>"
+            <!--  <a href="<?php /*= esc_url( $product->add_to_cart_url() ); */ ?>"
                class="bg-gray-900 text-white px-8 py-3 rounded-2xl text-lg font-bold hover:bg-black transition-transform active:scale-95 shadow-lg">
                 Adaugă
             </a>-->

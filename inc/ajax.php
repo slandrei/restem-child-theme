@@ -6,6 +6,8 @@
 add_action( 'wp_ajax_restem_filter_menu', 'restem_filter_menu' );
 add_action( 'wp_ajax_nopriv_restem_filter_menu', 'restem_filter_menu' );
 function restem_filter_menu() {
+	check_ajax_referer( 'restem_ajax_nonce', 'nonce' );
+
 	ob_start();
 	get_template_part(
 		'template-parts/menu/products',

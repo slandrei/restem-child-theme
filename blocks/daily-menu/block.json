@@ -4,6 +4,5 @@
   "title": "Restaurant Daily Menu",
   "category": "widgets",
   "render": "render.php",
-  "editorScript": "file:./index.js",
-  "viewScript": "file:../menu/view.js"
+  "editorScript": "file:./index.js"
 }

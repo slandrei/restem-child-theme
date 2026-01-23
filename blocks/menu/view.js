@@ -13,6 +13,7 @@
     const postAjax = async (action, data = {}) => {
         const fd = new FormData();
         fd.append('action', action);
+        fd.append('nonce', restem_utils.nonce);
         for (const key in data) {
             fd.append(key, data[key]);
         }
@@ -65,6 +66,9 @@
 
                         // If you add new images via AJAX, run this:
                         lightbox.reload();
+
+                        // Reload tippy tooltips
+                        initTippyTooltips?.()
                     }
                 });
 
@@ -146,7 +150,10 @@
             });
 
             // If you add new images via AJAX, run this:
-            lightbox.reload();
+            lightbox?.reload();
+
+            // Reload tippy tooltips
+            initTippyTooltips?.()
         }
     };
 

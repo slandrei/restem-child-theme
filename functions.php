@@ -3,6 +3,7 @@
 add_action( 'wp_enqueue_scripts', function () {
 	// Register ajaxurl for frontend scripts
 	wp_localize_script( 'restaurant-menu-view-script', 'restem_utils', [
+		'nonce'   => wp_create_nonce( 'restem_ajax_nonce' ),
 		'ajaxurl' => admin_url( 'admin-ajax.php' )
 	] );
 

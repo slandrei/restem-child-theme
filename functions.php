@@ -132,13 +132,3 @@ add_action( 'wp_footer', function () {
 	get_template_part( 'template-parts/menu/modal-product', null );
 } );
 
-/**
- * Prevent overflow-x on <html> tag.
- */
-add_filter('language_attributes', function($output) {
-	$custom_class = 'overflow-x-hidden md:overflow-x-auto';
-
-	// Append the class attribute
-	return $output . ' class="' . esc_attr($custom_class) . '"';
-});
-

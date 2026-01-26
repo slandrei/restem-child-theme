@@ -19,7 +19,7 @@ if ( ! $categories ) {
             scrolled: false,
 
             handleScroll() {
-                const element = document.querySelector('.restem-product-categories');
+                const element = document.querySelector('#sticky-sentinel');
                 const rect = element.getBoundingClientRect();
 
                 this.scrolled = rect.top <= 0;

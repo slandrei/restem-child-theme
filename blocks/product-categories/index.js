@@ -2,16 +2,16 @@
 ( function( blocks, element ) {
     const el = element.createElement;
 
-    blocks.registerBlockType( 'restaurant/menu', {
-        title: 'Restaurant Menu',
+    blocks.registerBlockType( 'restaurant/product-categories', {
+        title: 'Restaurant Product Categories',
         icon: 'menu',
-        category: 'widgets',
+        category: 'restaurant',
         edit: function() {
             return el(
                 'div',
                 { style: { padding: '16px', border: '1px dashed #ccc' } },
-                el( 'strong', {}, 'Menu Block' ),
-                el( 'p', {}, 'Produsele vor fi afișate pe site.' )
+                el( 'strong', {}, 'Product categories Block' ),
+                el( 'p', {}, 'Categoriile vor fi afișate pe site.' )
             );
         },
         save: function() {

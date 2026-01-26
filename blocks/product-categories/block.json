@@ -1,8 +1,8 @@
 {
-  "name": "restaurant/menu",
+  "name": "restaurant/product-categories",
   "apiVersion": 3,
-  "title": "Restaurant Menu",
-  "category": "widgets",
+  "title": "Restaurant Product Categories",
+  "category": "restaurant",
   "render": "render.php",
   "editorScript": "file:./index.js",
   "viewScript": "file:./view.js"

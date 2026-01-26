@@ -8,6 +8,7 @@ require_once __DIR__ . '/lib/constants.php';
 require_once __DIR__ . '/lib/auto-generated-kubio-theme.php';
 // Ajax functions
 require_once get_stylesheet_directory() . '/inc/ajax.php';
+require_once get_stylesheet_directory() . '/inc/product-category-image-field.php';
 
 add_action( 'wp_head', function () {
 	$files = [
@@ -56,16 +57,35 @@ add_action( 'wp_enqueue_scripts', function () {
 
 }, 20 );
 
-function restem_enqueue_custom_scripts() {
-	$index_path = get_stylesheet_directory() . '/assets/js/index.js';
+add_action( 'admin_enqueue_scripts', function () {
+	restem_enqueue_custom_admin_scripts();
+}, 20 );
 
-	wp_enqueue_script(
-		'restem-index-js',
-		get_stylesheet_directory_uri() . '/assets/js/index.js',
-		array(),
-		filemtime( $index_path ), // version number
-		true
-	);
+function restem_enqueue_custom_admin_scripts() {
+	$files = [
+		'/assets/js/admin/product-category-image-field.js',
+	];
+	foreach ( $files as $path ) {
+		$full_path = get_stylesheet_directory() . $path;
+		$name      = "restem-admin-" . basename( $full_path );
+		if ( file_exists( $full_path ) ) {
+			wp_enqueue_script( $name, get_stylesheet_directory_uri() . $path, array(), filemtime( $full_path ), true );
+		}
+	}
+}
+
+function restem_enqueue_custom_scripts() {
+	$files = [
+		'/assets/js/index.js',
+	];
+
+	foreach ( $files as $path ) {
+		$full_path = get_stylesheet_directory() . $path;
+		$name      = "restem-" . basename( $full_path );
+		if ( file_exists( $full_path ) ) {
+			wp_enqueue_script( $name, get_stylesheet_directory_uri() . $path, array(), filemtime( $full_path ), true );
+		}
+	}
 }
 
 function restem_enqueue_glightbox() {
@@ -120,7 +140,7 @@ function restem_enqueue_tippy_js() {
 
 // Register Menu block
 add_action( 'init', function () {
-	$block_list = [ 'menu', 'daily-menu' ];
+	$block_list = [ 'menu', 'daily-menu', 'product-categories' ];
 
 	foreach ( $block_list as $block ) {
 		register_block_type( __DIR__ . '/blocks/' . $block );

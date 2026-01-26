@@ -4,6 +4,12 @@ const domReady = () => {
     // DOM is fully loaded and parsed
 
     initTippyTooltips();
+
+    window.addEventListener('popstate', function(event) {
+        // Only reload if the navigation was initiated by a back/forward click
+        // and not by the initial page load.
+        window.location.reload();
+    });
 };
 
 const initTippyTooltips = () => {

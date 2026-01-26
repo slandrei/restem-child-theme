@@ -1,0 +1,9 @@
+{
+  "name": "restaurant/menu",
+  "apiVersion": 3,
+  "title": "Restaurant Menu",
+  "category": "widgets",
+  "render": "render.php",
+  "editorScript": "file:./index.js",
+  "viewScript": "file:./view.js"
+}

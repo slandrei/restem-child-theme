@@ -17,6 +17,7 @@
     --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
+    --container-6xl: 72rem;
     --text-sm: 0.875rem;
     --text-sm--line-height: calc(1.25 / 0.875);
     --text-base: 1rem;
@@ -48,9 +49,7 @@
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
     --color-kubio-color-1: rgb(16, 111, 95);
-    --color-kubio-color-4: rgb(244, 119, 40);
     --color-kubio-color-6: rgb(40, 44, 43);
-    --color-kubio-color-1-variant-1: rgb(28, 195, 167);
     --color-kubio-color-1-variant-2: rgb(89, 110, 107);
     --color-kubio-color-1-variant-4: rgb(16, 111, 95);
     --color-kubio-color-1-variant-5: rgb(3, 25, 22);
@@ -287,23 +286,17 @@
   .\!m-0 {
     margin: calc(var(--spacing) * 0) !important;
   }
+  .mx-auto {
+    margin-inline: auto;
+  }
   .my-6 {
     margin-block: calc(var(--spacing) * 6);
-  }
-  .-mt-0\.5 {
-    margin-top: calc(var(--spacing) * -0.5);
-  }
-  .-mt-1 {
-    margin-top: calc(var(--spacing) * -1);
   }
   .mt-1 {
     margin-top: calc(var(--spacing) * 1);
   }
   .mt-auto {
     margin-top: auto;
-  }
-  .mr-2 {
-    margin-right: calc(var(--spacing) * 2);
   }
   .\!mb-1 {
     margin-bottom: calc(var(--spacing) * 1) !important;
@@ -322,6 +315,9 @@
   }
   .mb-10 {
     margin-bottom: calc(var(--spacing) * 10);
+  }
+  .\!box-content {
+    box-sizing: content-box !important;
   }
   .scrollbar-hide {
     scrollbar-width: none;
@@ -343,9 +339,6 @@
   }
   .inline {
     display: inline;
-  }
-  .inline-block {
-    display: inline-block;
   }
   .inline-flex {
     display: inline-flex;
@@ -391,6 +384,9 @@
   }
   .w-full {
     width: 100%;
+  }
+  .max-w-6xl {
+    max-width: var(--container-6xl);
   }
   .max-w-\[calc\(100\%-40px\)\] {
     max-width: calc(100% - 40px);
@@ -450,9 +446,6 @@
   }
   .gap-0 {
     gap: calc(var(--spacing) * 0);
-  }
-  .gap-1 {
-    gap: calc(var(--spacing) * 1);
   }
   .gap-2 {
     gap: calc(var(--spacing) * 2);
@@ -902,6 +895,13 @@
       }
     }
   }
+  .hover\:text-white {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-white);
+      }
+    }
+  }
   .active\:scale-95 {
     &:active {
       --tw-scale-x: 95%;
@@ -996,6 +996,26 @@
       top: calc(var(--spacing) * 14);
     }
   }
+  .lg\:container {
+    @media (width >= 64rem) {
+      width: 100%;
+      @media (width >= 40rem) {
+        max-width: 40rem;
+      }
+      @media (width >= 48rem) {
+        max-width: 48rem;
+      }
+      @media (width >= 64rem) {
+        max-width: 64rem;
+      }
+      @media (width >= 80rem) {
+        max-width: 80rem;
+      }
+      @media (width >= 96rem) {
+        max-width: 96rem;
+      }
+    }
+  }
   .lg\:grid-cols-3 {
     @media (width >= 64rem) {
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1041,9 +1061,54 @@
       font-size: 2rem !important;
     }
   }
+  .xl\:container {
+    @media (width >= 80rem) {
+      width: 100%;
+      @media (width >= 40rem) {
+        max-width: 40rem;
+      }
+      @media (width >= 48rem) {
+        max-width: 48rem;
+      }
+      @media (width >= 64rem) {
+        max-width: 64rem;
+      }
+      @media (width >= 80rem) {
+        max-width: 80rem;
+      }
+      @media (width >= 96rem) {
+        max-width: 96rem;
+      }
+    }
+  }
+  .xl\:max-w-6xl {
+    @media (width >= 80rem) {
+      max-width: var(--container-6xl);
+    }
+  }
   .xl\:grid-cols-3 {
     @media (width >= 80rem) {
       grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  .\32 xl\:container {
+    @media (width >= 96rem) {
+      width: 100%;
+      @media (width >= 40rem) {
+        max-width: 40rem;
+      }
+      @media (width >= 48rem) {
+        max-width: 48rem;
+      }
+      @media (width >= 64rem) {
+        max-width: 64rem;
+      }
+      @media (width >= 80rem) {
+        max-width: 80rem;
+      }
+      @media (width >= 96rem) {
+        max-width: 96rem;
+      }
     }
   }
   .\[\&_\.amount\]\:text-kubio-color-1 {
@@ -1084,18 +1149,6 @@
   .\[\&\:has\(\.restem-spinner\)\]\:min-h-\[25vh\] {
     &:has(.restem-spinner) {
       min-height: 25vh;
-    }
-  }
-  .\[\&\:has\(img\)\]\:\!px-4 {
-    &:has(img) {
-      padding-inline: calc(var(--spacing) * 4) !important;
-    }
-  }
-  .md\:\[\&\:has\(img\)\]\:\!px-4 {
-    @media (width >= 48rem) {
-      &:has(img) {
-        padding-inline: calc(var(--spacing) * 4) !important;
-      }
     }
   }
 }

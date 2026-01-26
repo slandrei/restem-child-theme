@@ -28,7 +28,7 @@ if ( ! $products ) {
 }
 
 
-echo '<div class="restem-products py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 px-4 md:px-5 lg:px-10">';
+echo '<div class="restem-products mx-auto max-w-6xl !box-content py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 px-4 md:px-5 lg:px-10">';
 
 foreach ( $products as $product ) {
 	get_template_part(

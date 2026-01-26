@@ -42,17 +42,12 @@ if ( ! $categories ) {
             // Set the horizontal scroll instantly so the user doesn't see a "jump"
             container.scrollTo({
                 left: scrollOffset,
-                behavior: 'auto'
+                behavior: 'smooth'
             });
         }
 
     })
 </script>
-
-<style>
-
-
-</style>
 
 <div id="sticky-sentinel" class="absolute top-10 lg:top-14"></div>
 
@@ -68,7 +63,7 @@ if ( ! $categories ) {
     $index = 0;
     foreach ( $categories as $cat ): ?>
         <button data-category="<?php echo esc_attr( $cat->slug ); ?>"
-                class="!text-gray-100 whitespace-nowrap md:!text-lg !font-bold !bg-kubio-color-6 !border-kubio-color-6 data-[active-category='true']:!bg-kubio-color-1-variant-2 data-[active-category='true']:!border-kubio-color-1-variant-2 active:scale-95 md:active:scale-100 transition-all duration-75 md:!px-8 md:!py-4"
+                class="restem-product-category !text-gray-100 whitespace-nowrap md:!text-lg !font-bold !bg-kubio-color-6 !border-kubio-color-6 data-[active-category='true']:!bg-kubio-color-1-variant-2 data-[active-category='true']:!border-kubio-color-1-variant-2 active:scale-95 md:active:scale-100 transition-all duration-75 md:!px-8 md:!py-4"
                 data-active-category="<?= ( isset( $_GET['category'] ) && $_GET['category'] === $cat->slug ) || ( ! isset( $_GET['category'] ) && $index === 0 ) ? 'true' : 'false' ?>"
         >
             <?= esc_html( $cat->name ); ?>

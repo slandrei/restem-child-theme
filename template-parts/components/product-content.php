@@ -6,10 +6,10 @@ $weight      = $product->get_weight();
 $description = $product->get_short_description() ?: $product->get_description();
 // Truncate description if too long
 //$description   = wp_trim_words( $description, 30 );
-$price         = $product->get_price();
+$price         = $product->get_regular_price();
 $sale_price    = $product->get_sale_price();
-$price         = number_format( (float) $product->get_price(), 2 );
-$sale_price    = $sale_price ? number_format( (float) ( $sale_price ), 2 ) : '';
+$price         = number_format( (float) $product->get_regular_price(), 2 );
+$sale_price    = $sale_price !== "" ? number_format( (float) ( $sale_price ), 2 ) : 0;
 
 ?>
 
@@ -51,11 +51,11 @@ $sale_price    = $sale_price ? number_format( (float) ( $sale_price ), 2 ) : '';
 		<?php if ( $price > 0 ) : ?>
             <div class="flex flex-wrap gap-x-2 gap-y-0">
                 <div class="product-price text-kubio-color-1 font-bold !text-2xl leading-none [&_del]:text-kubio-color-6-variant-2/80 [&_del]:font-normal [&_del]:text-sm [&_del]:ml-2 [&_ins]:no-underline [&_.amount]:text-kubio-color-1">
-					<?= $price; ?> lei
+					<?= $sale_price > 0 && $sale_price < $price ? $sale_price : $price; ?> lei
                 </div>
-				<?php if ( $sale_price ) : ?>
-                    <div class="product-old-price text-kubio-color-6-variant-2 text-lg font-bold line-through">
-                        &nbsp;<?= $sale_price; ?> lei
+				<?php if ($sale_price > 0 && $sale_price < $price ) : ?>
+                    <div class="product-old-price text-kubio-color-6-variant-2 text-lg line-through">
+                        &nbsp;<?= $price; ?> lei
                     </div>
 				<?php endif; ?>
             </div>
@@ -64,7 +64,7 @@ $sale_price    = $sale_price ? number_format( (float) ( $sale_price ), 2 ) : '';
 		<?php endif; ?>
 
         <button
-                class="!text-sm !border-[1px] !bg-transparent !border-gray-800 !text-gray-800 !px-6 !py-3 rounded-xl font-medium hover:!bg-kubio-color-6 hover:!text-white duration-500 transition-colors"
+                class="!text-sm !border-[1px] !bg-transparent !border-gray-800 !text-gray-800 !px-6 !py-3 rounded-xl font-medium hover:!bg-kubio-color-6/12 duration-500 transition-colors"
                 data-open-modal
                 data-product-id="<?= $product->get_id(); ?>"
         >

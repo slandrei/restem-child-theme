@@ -9,7 +9,7 @@
 
 
 <div class="tw" data-menu-block>
-    <div class="relative bg-kubio-color-1-variant-1/20 py-[90px]">
+    <div class="relative py-[90px]">
         <?php
         get_template_part(
                 'template-parts/components/product-categories',

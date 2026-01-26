@@ -6,6 +6,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 require_once __DIR__ . '/lib/constants.php';
 require_once __DIR__ . '/lib/auto-generated-kubio-theme.php';
+// Ajax functions
+require_once get_stylesheet_directory() . '/inc/ajax.php';
 
 add_action( 'wp_head', function () {
 	$files = [
@@ -130,5 +132,13 @@ add_action( 'wp_footer', function () {
 	get_template_part( 'template-parts/menu/modal-product', null );
 } );
 
-// Ajax functions
-require_once get_stylesheet_directory() . '/inc/ajax.php';
+/**
+ * Prevent overflow-x on <html> tag.
+ */
+add_filter('language_attributes', function($output) {
+	$custom_class = 'overflow-x-hidden md:overflow-x-auto';
+
+	// Append the class attribute
+	return $output . ' class="' . esc_attr($custom_class) . '"';
+});
+

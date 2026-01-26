@@ -6,6 +6,15 @@ $products = isset( $args['products'] ) ? $args['products'] : null;
 
 // Check URL parameter first, fallback to args
 $category = isset( $_GET['category'] ) ? sanitize_text_field( $_GET['category'] ) : ( $args['category'] ?? '' );
+if ( ! $category || $category === "" ) {
+	$categories = get_terms( [
+		'taxonomy'   => 'product_cat',
+		'hide_empty' => true,
+	] );
+
+	$category = count( $categories ) > 0 ? array_shift( $categories )->slug : '';
+
+}
 
 if ( ! $products ) {
 	$queryArgs = [

@@ -5,7 +5,7 @@ $product     = $args['product'];
 $weight      = $product->get_weight();
 $description = $product->get_short_description() ?: $product->get_description();
 // Truncate description if too long
-$description   = wp_trim_words( $description, 30 );
+//$description   = wp_trim_words( $description, 30 );
 $price         = $product->get_price();
 $sale_price    = $product->get_sale_price();
 $price         = number_format( (float) $product->get_price(), 2 );
@@ -45,9 +45,6 @@ $sale_price    = $sale_price ? number_format( (float) ( $sale_price ), 2 ) : '';
     <div class="!text-kubio-color-6-variant-2/80 !text-md leading-[1.4] mb-3.75 md:mb-5 flex-grow text-left overflow-hidden"
          style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
 		<?= $description; ?>
-        Lorem ipsum dolor sit amet, at mei dolore tritani repudiandae. In his nemore vim ad prima vivendum
-        consetetur. Viderer feugiat at pro, mea aperiam. Lorem ipsum dolor sit amet, at mei dolore tritani
-        repudiandae. In his nemore vim ad prima vivendum consetetur. Viderer feugiat at pro, mea aperiam.
     </div>
 
     <div class="border-t border-gray-100 pt-3.75 md:pt-5 flex items-center justify-between mt-auto">

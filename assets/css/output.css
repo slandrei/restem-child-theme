@@ -480,9 +480,6 @@
     border-bottom-style: var(--tw-border-style);
     border-bottom-width: 2px;
   }
-  .\!border-\[\#22211f\] {
-    border-color: #22211f !important;
-  }
   .\!border-gray-800 {
     border-color: var(--color-gray-800) !important;
   }
@@ -495,23 +492,11 @@
   .border-gray-100 {
     border-color: var(--color-gray-100);
   }
-  .\!bg-\[\#22211f\] {
-    background-color: #22211f !important;
-  }
   .\!bg-kubio-color-6 {
     background-color: var(--color-kubio-color-6) !important;
   }
   .\!bg-transparent {
     background-color: transparent !important;
-  }
-  .bg-\[\#7BA05B\] {
-    background-color: #7BA05B;
-  }
-  .bg-\[\#7BA05B\]\/80 {
-    background-color: color-mix(in oklab, #7BA05B 80%, transparent);
-  }
-  .bg-\[\#AF9C91\]\/20 {
-    background-color: color-mix(in oklab, #AF9C91 20%, transparent);
   }
   .bg-black\/20 {
     background-color: color-mix(in srgb, #000 20%, transparent);
@@ -590,6 +575,9 @@
   }
   .py-\[90px\] {
     padding-block: 90px;
+  }
+  .pt-0 {
+    padding-top: calc(var(--spacing) * 0);
   }
   .pt-3\.75 {
     padding-top: calc(var(--spacing) * 3.75);
@@ -675,9 +663,6 @@
     --tw-font-weight: var(--font-weight-medium);
     font-weight: var(--font-weight-medium);
   }
-  .\!text-\[\#76736ccc\] {
-    color: #76736ccc !important;
-  }
   .\!text-gray-100 {
     color: var(--color-gray-100) !important;
   }
@@ -689,24 +674,6 @@
     @supports (color: color-mix(in lab, red, red)) {
       color: color-mix(in oklab, var(--color-kubio-color-6-variant-2) 80%, transparent) !important;
     }
-  }
-  .text-\[\#22211F\] {
-    color: #22211F;
-  }
-  .text-\[\#22211f80\] {
-    color: #22211f80;
-  }
-  .text-\[\#76736c\] {
-    color: #76736c;
-  }
-  .text-\[\#76736ccc\] {
-    color: #76736ccc;
-  }
-  .text-\[\#B45309\] {
-    color: #B45309;
-  }
-  .text-\[\#b07657\] {
-    color: #b07657;
   }
   .text-gray-500 {
     color: var(--color-gray-500);
@@ -851,13 +818,6 @@
       }
     }
   }
-  .hover\:\!bg-\[\#22211f\] {
-    &:hover {
-      @media (hover: hover) {
-        background-color: #22211f !important;
-      }
-    }
-  }
   .hover\:\!bg-kubio-color-6 {
     &:hover {
       @media (hover: hover) {
@@ -894,19 +854,9 @@
       scale: var(--tw-scale-x) var(--tw-scale-y);
     }
   }
-  .data-\[active-category\=\'true\'\]\:\!border-\[\#b07657\] {
-    &[data-active-category='true'] {
-      border-color: #b07657 !important;
-    }
-  }
   .data-\[active-category\=\'true\'\]\:\!border-kubio-color-1-variant-2 {
     &[data-active-category='true'] {
       border-color: var(--color-kubio-color-1-variant-2) !important;
-    }
-  }
-  .data-\[active-category\=\'true\'\]\:\!bg-\[\#b07657\] {
-    &[data-active-category='true'] {
-      background-color: #b07657 !important;
     }
   }
   .data-\[active-category\=\'true\'\]\:\!bg-kubio-color-1-variant-2 {
@@ -1025,11 +975,6 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
-  .\[\&_\.amount\]\:text-\[\#B45309\] {
-    & .amount {
-      color: #B45309;
-    }
-  }
   .\[\&_\.amount\]\:text-kubio-color-1 {
     & .amount {
       color: var(--color-kubio-color-1);
@@ -1050,11 +995,6 @@
     & del {
       --tw-font-weight: var(--font-weight-normal);
       font-weight: var(--font-weight-normal);
-    }
-  }
-  .\[\&_del\]\:text-\[\#76736ccc\] {
-    & del {
-      color: #76736ccc;
     }
   }
   .\[\&_del\]\:text-kubio-color-6-variant-2\/80 {

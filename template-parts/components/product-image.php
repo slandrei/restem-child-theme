@@ -7,11 +7,17 @@ $image_id         = $product->get_image_id();
 $image_url        = wp_get_attachment_image_url( $image_id, 'large' );
 $is_vegetarian    = has_term( 'vegetarian', 'product_cat', $product->get_id() );
 
+if ( ! $image_url ) {
+    // get the file from assets/images/placeholder.jpg
+    $image_url = get_stylesheet_directory_uri() . '/assets/images/placeholder.jpg';
+    $image_url  = 'https://picsum.photos/1200/500.webp?random=' . rand( 1, 1000 ) . '';
+}
+
 ?>
 
 
-<div class="restem-product-image relative p-3">
-    <div class="w-full overflow-hidden rounded-lg relative">
+<div class="restem-product-image relative p-3 <?= $disable_lightbox ? 'pt-0' : '' ?>">
+    <div class="w-full overflow-hidden rounded-lg relative opacity-0 animate-fade-in duration-500">
         <?php if ( $image_url ) : ?>
             <img src="<?= esc_url( $image_url ); ?>" alt="<?= esc_attr( $product->get_name() ); ?>"
                  class="<?= $disable_lightbox ? '' : 'glightbox' ?> w-full max-h-[230px] md:max-h-[280px] min-h-[230px] md:min-h-[280px] h-full object-cover"

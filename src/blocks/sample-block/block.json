@@ -1,0 +1,19 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "restem/sample-block",
+	"version": "0.1.0",
+	"title": "Sample Block",
+	"category": "theme",
+	"icon": "smiley",
+	"description": "Display restaurant product categories.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "sample-block",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

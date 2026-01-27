@@ -1,0 +1,19 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "restem/product-categories",
+	"version": "0.1.0",
+	"title": "Product Categories",
+	"category": "theme",
+	"icon": "smiley",
+	"description": "Display restaurant product categories.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "product-categories",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

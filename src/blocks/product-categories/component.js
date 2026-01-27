@@ -1,12 +1,11 @@
 import {__} from "@wordpress/i18n";
-import {useBlockEditContext} from "@wordpress/block-editor";
 import {withBlockContext} from "../../hocs/with-block-context.js";
 
-const Component = ({attributes, setAttributes, ...blockProps}) => {
+const Component = ({attributes}) => {
     const {selectedCategories} = attributes;
 
     return (
-        <div {...blockProps}>
+        <>
             <strong>{__('Product Categories Block', 'product-categories')}</strong>
             <p>{__('Categories will be displayed on the site.', 'product-categories')}</p>
             <ul>
@@ -21,7 +20,7 @@ const Component = ({attributes, setAttributes, ...blockProps}) => {
                     </li>
                 )}
             </ul>
-        </div>
+        </>
     )
 }
 

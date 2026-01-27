@@ -1,14 +1,19 @@
 <?php
 /** @var $args */
 
-$categories = isset( $args['categories'] ) ? $args['categories'] : null;
+$selected_categories = isset( $attributes['selectedCategories'] ) ? $attributes['selectedCategories'] : [];
 
-if ( ! $categories ) {
-    $categories = get_terms( [
-            'taxonomy'   => 'product_cat',
-            'hide_empty' => true,
-    ] );
+$args = [
+    'taxonomy'   => 'product_cat',
+    'hide_empty' => true,
+];
+
+if ( ! empty( $selected_categories ) ) {
+    $args['include'] = $selected_categories;
+    $args['orderby'] = 'include';
 }
+
+$categories = get_terms( $args );
 ?>
 
 

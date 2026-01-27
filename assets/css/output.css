@@ -226,9 +226,6 @@
   .sticky {
     position: sticky;
   }
-  .inset-0 {
-    inset: calc(var(--spacing) * 0);
-  }
   .-top-4 {
     top: calc(var(--spacing) * -4);
   }
@@ -375,9 +372,6 @@
   }
   .min-h-0 {
     min-height: calc(var(--spacing) * 0);
-  }
-  .min-h-\[150px\] {
-    min-height: 150px;
   }
   .min-h-\[200px\] {
     min-height: 200px;

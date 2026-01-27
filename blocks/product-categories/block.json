@@ -5,5 +5,11 @@
   "category": "restaurant",
   "render": "render.php",
   "editorScript": "file:./index.js",
-  "viewScript": "file:./view.js"
+  "viewScript": "file:./view.js",
+  "attributes": {
+    "selectedCategories": {
+      "type": "array",
+      "default": []
+    }
+  }
 }

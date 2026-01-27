@@ -1,6 +1,8 @@
 import {__} from "@wordpress/i18n";
+import ServerSideRender from '@wordpress/server-side-render';
+import metadata from './block.json';
 import {withBlockContext} from "../../hocs/with-block-context.js";
-
+/*
 const Component = ({attributes}) => {
     const {selectedCategories} = attributes;
 
@@ -21,6 +23,17 @@ const Component = ({attributes}) => {
                 )}
             </ul>
         </>
+    )
+}
+*/
+
+const Component = ({attributes}) => {
+
+    return (
+        <ServerSideRender
+            block={ metadata.name }
+            attributes={ attributes }
+        />
     )
 }
 

@@ -166,3 +166,17 @@ add_action( 'init', function () {
 add_action( 'wp_footer', function () {
 	get_template_part( 'template-parts/menu/modal-product', null );
 } );
+
+add_action( 'after_setup_theme', function () {
+	// 1. Enable support for editor styles
+	add_theme_support( 'editor-styles' );
+
+	// 2. Point to your compiled Tailwind file (relative to theme root)
+	$tailwind_generated_css = 'assets/css/output.css';
+	if ( defined( 'RESTEM_PRODUCTION' ) && RESTEM_PRODUCTION === 'true' ) {
+		$tailwind_generated_css = '/assets/css/minified/output.min.css';
+	}
+
+	add_editor_style( $tailwind_generated_css );
+} );
+

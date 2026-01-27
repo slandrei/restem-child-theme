@@ -5,13 +5,20 @@
 	"version": "0.1.0",
 	"title": "Product Categories",
 	"category": "theme",
-	"icon": "smiley",
+	"icon": "menu",
 	"description": "Display restaurant product categories.",
 	"example": {},
 	"supports": {
 		"html": false
 	},
 	"textdomain": "product-categories",
+	"attributes": {
+		"selectedCategories": {
+			"type": "array",
+			"default": []
+		}
+	},
+	"render": "file:./render.php",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",

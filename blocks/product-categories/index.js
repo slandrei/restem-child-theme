@@ -1,7 +1,7 @@
 // Înlocuiește conținutul din index.js cu acesta:
 ( function( blocks, element, blockEditor, components, data ) {
     const el = element.createElement;
-    const { InspectorControls } = blockEditor;
+    const { InspectorControls, useBlockProps } = blockEditor;
     const { PanelBody, CheckboxControl, Spinner } = components;
     const { useSelect } = data;
 
@@ -12,6 +12,9 @@
         edit: function( props ) {
             const { attributes, setAttributes } = props;
             const { selectedCategories } = attributes;
+            const blockProps = useBlockProps( {
+                style: { padding: '16px', border: '1px dashed #ccc' }
+            } );
 
             const categories = useSelect( ( select ) => {
                 return select( 'core' ).getEntityRecords( 'taxonomy', 'product_cat', {
@@ -52,7 +55,7 @@
                 ),
                 el(
                     'div',
-                    { style: { padding: '16px', border: '1px dashed #ccc' } },
+                    blockProps,
                     el( 'strong', {}, 'Product categories Block' ),
                     el( 'p', {}, 'Categoriile vor fi afișate pe site.' ),
                     el(

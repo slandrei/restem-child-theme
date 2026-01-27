@@ -138,12 +138,27 @@ function restem_enqueue_tippy_js() {
 	);
 }
 
-// Register Menu block
+// Register Blocks
 add_action( 'init', function () {
-	$block_list = [ 'menu', 'daily-menu', 'product-categories' ];
+	// 1. Static blocks (legacy)
+	$legacy_blocks = [ 'menu', 'daily-menu', 'product-categories' ];
+	foreach ( $legacy_blocks as $block ) {
+		$dir = __DIR__ . '/blocks/' . $block;
+		if ( is_dir( $dir ) && file_exists( $dir . '/block.json' ) ) {
+			register_block_type( $dir );
+		}
+	}
 
-	foreach ( $block_list as $block ) {
-		register_block_type( __DIR__ . '/blocks/' . $block );
+	// 2. Dynamic blocks (built from src/blocks)
+	$build_blocks_dir = __DIR__ . '/build/blocks';
+	if ( is_dir( $build_blocks_dir ) ) {
+		$folders = array_diff( scandir( $build_blocks_dir ), array( '..', '.' ) );
+		foreach ( $folders as $folder ) {
+			$block_path = $build_blocks_dir . '/' . $folder;
+			if ( is_dir( $block_path ) && file_exists( $block_path . '/block.json' ) ) {
+				register_block_type( $block_path );
+			}
+		}
 	}
 } );
 
@@ -151,4 +166,3 @@ add_action( 'init', function () {
 add_action( 'wp_footer', function () {
 	get_template_part( 'template-parts/menu/modal-product', null );
 } );
-

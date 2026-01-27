@@ -4,17 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npx @tailwindcss/cli -i ./assets/css/input.css -o ./assets/css/minified/output.min.css --minify",
-    "watch": "npx @tailwindcss/cli -i ./assets/css/input.css -o ./assets/css/output.css --watch",
+    "build": "wp-scripts build && npx @tailwindcss/cli -i ./assets/css/input.css -o ./assets/css/minified/output.min.css --minify",
+    "dev": "wp-scripts start & npx @tailwindcss/cli -i ./assets/css/input.css -o ./assets/css/output.css --watch",
+    "create": "node dev-tools/create-block.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.18",
     "@wordpress/blocks": "^15.11.0",
+    "@wordpress/scripts": "^31.3.0",
     "autoprefixer": "^10.4.23",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.18"

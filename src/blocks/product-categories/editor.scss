@@ -5,4 +5,13 @@
  */
 
 .wp-block-restem-product-categories {
+
+
 }
+
+.restem-selected-categories-control {
+  .components-base-control:has([type=checkbox][disabled]) {
+    opacity: .5;
+  }
+}
+

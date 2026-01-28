@@ -180,3 +180,25 @@ add_action( 'after_setup_theme', function () {
 	add_editor_style( $tailwind_generated_css );
 } );
 
+
+add_action( 'enqueue_block_editor_assets', function () {
+	// 1. Determine the correct path
+	$tailwind_generated_css = '/assets/css/output.css';
+	if ( defined( 'RESTEM_PRODUCTION' ) && RESTEM_PRODUCTION === 'true' ) {
+		$tailwind_generated_css = '/assets/css/minified/output.min.css';
+	}
+
+	$full_path = get_stylesheet_directory() . $tailwind_generated_css;
+	$url = get_stylesheet_directory_uri() . $tailwind_generated_css;
+
+	// 2. Enqueue the style specifically for the editor UI (Sidebar + Toolbars)
+	if ( file_exists( $full_path ) ) {
+		wp_enqueue_style(
+			'restem-tailwind-sidebar',
+			$url,
+			array(),
+			filemtime( $full_path ) // Cache busting
+		);
+	}
+} );
+

@@ -5,7 +5,7 @@ $selected_categories = isset( $attributes['selectedCategories'] ) ? $attributes[
 
 $args = [
         'taxonomy'   => 'product_cat',
-        'hide_empty' => true,
+        'hide_empty' => false,
 ];
 
 if ( ! empty( $selected_categories ) ) {

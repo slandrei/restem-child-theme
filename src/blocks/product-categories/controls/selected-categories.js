@@ -73,7 +73,7 @@ const SelectedCategories = ({attributes, setAttributes}) => {
                                     }
                                     checked={selectedCategories.includes(category.id)}
                                     onChange={() => onCategoryChange(category.id)}
-                                    disabled={isEmpty}
+                                    //disabled={isEmpty}
                                 />
                             );
                         })

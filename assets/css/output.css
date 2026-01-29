@@ -572,9 +572,6 @@
   .border-\[\#B45309\] {
     border-color: #B45309;
   }
-  .border-gray-100 {
-    border-color: var(--color-gray-100);
-  }
   .border-kubio-color-1-variant-4\/20 {
     border-color: color-mix(in srgb, rgb(16, 111, 95) 20%, transparent);
     @supports (color: color-mix(in lab, red, red)) {

@@ -69,7 +69,7 @@ $alergeni       = "Gluten, Muștar (sos), Susan (posibil, în chiflă)";
                 <?= wp_kses_post( $description ); ?>
             </div>
 
-            <div class="border-t border-gray-100 my-6"></div>
+            <div class="border-t border-kubio-color-1/10 my-6"></div>
 
             <div class="space-y-6">
                 <p class="text-kubio-color-1-variant-2 !text-base leading-relaxed italic">
@@ -117,7 +117,7 @@ $alergeni       = "Gluten, Muștar (sos), Susan (posibil, în chiflă)";
     </div>
 
     <!-- Footer cu Preț și Buton -->
-    <div class="mt-auto border-t border-gray-100 p-8 pt-6">
+    <div class="mt-auto border-t border-kubio-color-1/10 p-8 pt-6">
         <div class="flex items-center justify-between">
             <?php if ( $price > 0 ) : ?>
                 <div class="flex gap-2">

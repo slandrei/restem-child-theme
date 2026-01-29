@@ -17,10 +17,10 @@ $categories = get_terms( $args );
 ?>
 
 <div class="tw" data-product-categories-block>
-    <div class="relative flex flex-wrap gap-2.5 gap-y-4 md:gap-0">
+    <div class="relative flex justify-center flex-wrap gap-2.5 gap-y-6 xl:gap-0">
         <?php foreach ( $categories as $category ) : ?>
             <a href="/menu<?= $category->count > 0 ? '?category=' . $category->slug : '' ?>"
-               class="flex-1 flex flex-col h-fit gap-2 text-white hover:text-white">
+               class="w-[135px] flex flex-col h-fit gap-2 text-white hover:text-white">
                 <div class="relative flex h-full w-full ">
                     <div class="restem-category-wrapper flex justify-center w-full min-w-[70px] h-[70px] overflow-hidden">
                         <?php

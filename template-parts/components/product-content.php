@@ -47,7 +47,7 @@ $sale_price    = $sale_price !== "" ? number_format( (float) ( $sale_price ), 2 
 		<?= $description; ?>
     </div>
 
-    <div class="border-t border-gray-100 pt-3.75 md:pt-5 flex items-center justify-between mt-auto">
+    <div class="border-t border-kubio-color-1/10 pt-3.75 md:pt-5 flex items-center justify-between mt-auto">
 		<?php if ( $price > 0 ) : ?>
             <div class="flex flex-wrap gap-x-2 gap-y-0">
                 <div class="product-price text-kubio-color-1 font-bold !text-2xl leading-none [&_del]:text-kubio-color-6-variant-2/80 [&_del]:font-normal [&_del]:text-sm [&_del]:ml-2 [&_ins]:no-underline [&_.amount]:text-kubio-color-1">
